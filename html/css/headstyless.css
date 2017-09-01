@@ -6,32 +6,41 @@ body div{
   padding: 0;
 }
 .header{
+
   display: block;
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   color: white;
-  background-color: blue;
+  background-color: rgba(37, 5, 193, 0.8);
   margin: 0;
   padding:-2em 0 0 0;
   margin-top: 0;
 
 }
+.header nav{
+  display: block;
+  float: left;
+  width: 75%;
+  margin: 0;
+  padding: 0;
+
+}
 .header h1{
-  /*display: block;*/
   float: left;
   width: 20%;
 }
 .head-ol ol{
-  display: inline-block;
-  width: 80%;
-  margin: 30% 0 0 0;
+  display: block;
+  float: left;
+  width: 75%;
+  margin: 0;
   padding: 0;
 }
 .head-ol li{
   display: inline-block;
-margin-left: 3em;
+margin-left: 1%;
   margin-top: 0;
   list-style: none;
   color: white;
@@ -42,7 +51,7 @@ margin-left: 3em;
   border-radius: 15px;
   padding: 0.1em 1em;
   margin-left:0;
-  margin-top: 2em;
+  /*margin-top: 2em;*/
   background-color: white;
   color: grey;
   text-decoration: none;
