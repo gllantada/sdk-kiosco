@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Head</title>
-
+<link rel="stylesheet" href="css/headstyless.css">
   </head>
   <body>
     <div class="header">
       <h1>SDG Premium</h1>
-<ol>
-  <li>Vender</li>
-  <li>Proveedores</li>
-  <li>Stock</li>
-  <li>Reportes</li>
+<ol class="head-ol">
+  <li><a href="#">Vender</a></li>
+  <li><a href="#">Proveedores</a></li>
+  <li><a href="#">Stock</a></li>
+  <li><a href="#">Reportes</a></li>
 </ol>
 
     </div>
