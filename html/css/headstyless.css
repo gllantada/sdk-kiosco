@@ -1,58 +1,101 @@
-body {
+*{
   box-sizing: border-box;
 }
-body div{
-  margin: 0;
-  padding: 0;
+body{
+  margin:0;
+  font-family: "sant serif";
 }
-.header{
+.main-heather{
+  background-color: #E42E27;
+  height: 90px;
+  /*overflow: hidden;*/
 
-  display: block;
+}
+.main-heather h1{
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
+  top: 5px;
+  left: 30%;
   color: white;
-  background-color: rgba(37, 5, 193, 0.8);
-  margin: 0;
-  padding:-2em 0 0 0;
-  margin-top: 0;
+  font-style: normal;
+  font-size: 3em;
+  font-family: "sant serif";
+}
+.img-box{
+  display: block;
+  width: 110%;
+  background-color: #E42E27;
+border-bottom: solid 3px grey;
 
+  text-align: center;
+  overflow: hidden;
+position: relative;
+top: -10%;
+right: 0.8%;
 }
-.header nav{
-  display: block;
-  float: left;
-  width: 75%;
-  margin: 0;
-  padding: 0;
+.heather-logo{
+  /*padding: 20px;*/
+display: block;
+margin-top: 5px;
+margin-bottom: -1,02em;
+  position: relative;
+  /*border-radius: 180px;*/
+/*left: 50%;
+transform: translateX(-50%);*/
 
-}
-.header h1{
   float: left;
-  width: 20%;
 }
-.head-ol ol{
-  display: block;
-  float: left;
-  width: 75%;
-  margin: 0;
-  padding: 0;
-}
-.head-ol li{
-  display: inline-block;
-margin-left: 1%;
-  margin-top: 0;
-  list-style: none;
-  color: white;
-}
-.head-ol a{
-  display: block;
-  font-size: 2em;
-  border-radius: 15px;
-  padding: 0.1em 1em;
-  margin-left:0;
-  /*margin-top: 2em;*/
+.nav-box{
+/*margin-top: -10px;*/
   background-color: white;
-  color: grey;
+  overflow: hidden;
+
+  width: 100%;
+  display: block;
+  border-bottom: solid 1px #EEEEEE;
+}
+.main-nav{
+  overflow: hidden;
+  /*background-color: grey;*/
+/*text-align: center;*/
+}
+.main-nav ul{
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+margin: 0;
+/*text-align: center;*/
+/*background-color: green;*/
+text-align: center;
+}
+.nav-box a{
   text-decoration: none;
+
+  color: black;
+  display: inline-block;
+  opacity: 0.7;
+  font-size: 1.4em;
+  padding: 0  20px 15px;
+  margin: 0;
+
+  margin-left: 10px;
+}
+.main-nav li{
+
+  display: inline-block;
+margin-left: 10px;
+
+}
+
+.sub-menu::after{
+  content: url();
+  background-image: url('../icons2/submenu.svg');
+  opacity: 0.95;
+  display: inline-block;
+  position: relative;
+  margin: auto 0.5em;
+  left: 5px;
+  height: 0.7em;
+  width: 0.7em;
 }

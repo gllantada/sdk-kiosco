@@ -65,33 +65,3 @@ body{
   left: 50%;
   transform: translateX(-50%);
 }
-.header{
-  display: block;
-  color: white;
-  background-color: blue;
-  margin: 0;
-  padding:-2em 0 0 0;
-  margin-top: 0;
-
-}
-.header h1{
-  display: block;
-  width: 20%;
-}
-.head-ol ol{
-  display: inline-block;
-  width: 80%;
-  margin: 0;
-  padding: 0;
-}
-.head-ol li{
-  display: inline-block;
-  padding: 10px;
-  margin-left: 3em;
-  list-style: none;
-  color: white;
-}
-.head-ol a{
-  color: white;
-  text-decoration: none;
-}
