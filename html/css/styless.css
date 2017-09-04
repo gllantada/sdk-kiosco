@@ -4,6 +4,7 @@ html{
 }
 body{
   box-sizing: border-box;
+  background-color: #E42E27;
   font-family: sans-serif;
   margin:0;
   padding:0;
@@ -19,8 +20,7 @@ body{
   font-size: 4em;
 }
 .login{
-  background-color: rgb(37, 5, 193);
-
+  /*background-color: rgb(37, 5, 193);*/
   display: block;
   margin-left: 40vw;
 }
@@ -54,14 +54,16 @@ body{
   width: 14.5em;
   height: 4em;
   border-radius: 15px;
-  background-color: green;
+  background-color: black;
+  color: white;
   margin: 5% 0 0 0;
 }
 .olvidar{
-
+color: white;
   text-decoration: none;
+  /*text-align: left;*/
   display: block;
   position: absolute;
-  left: 50%;
+  left: 48.6%;
   transform: translateX(-50%);
 }

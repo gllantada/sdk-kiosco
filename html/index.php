@@ -10,11 +10,11 @@
       <h1>SDG Kiosco</h1>
 </div>
       <form class="login" action="index.html" method="post">
-        <label for="user">Usuario:       </label>
+        <!-- <label for="user">Usuario:       </label> -->
 
-        <input type="text" name="usuario" value="">
-        <label for="passwd">Contraseña:  </label>
-        <input type="password" name="passwd" value="">
+        <input type="text" name="usuario" placeholder="Usuario:">
+        <!-- <label for="passwd">Contraseña:  </label> -->
+        <input type="password" name="passwd" placeholder="Contraseña:">
 
         <!-- <textarea name="passwd" rows="8" cols="80"></textarea> -->
 
