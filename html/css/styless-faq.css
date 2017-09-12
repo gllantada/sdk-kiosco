@@ -10,8 +10,7 @@ body {
   /*border: solid 1px;*/
   margin: 0;
   padding: 0;
-
-  text-align: center;
+  /*text-align: center;*/
 }
 
 
@@ -58,6 +57,19 @@ body {
   position: fixed;
 }
 
-.faq h3{
+h1{
+  text-align: center;
+}
+.preguntas{
+  border: 1px solid black;
+  font-size: 15px;
+  font-weight: normal;
   text-align: left;
+  width: 30%;
+}
+
+.respuestas{
+  text-align: left;
+  width: 70%;
+  display: inline-block;
 }
