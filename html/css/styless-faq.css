@@ -61,7 +61,12 @@ h1{
   text-align: center;
 }
 .preguntas{
+    display: inline-block;
+    /*position: fixed;*/
+    top: 4em;
+    /*width: 10%;*/
   border: 1px solid black;
+  overflow: hidden;
   font-size: 15px;
   font-weight: normal;
   text-align: left;
@@ -70,6 +75,9 @@ h1{
 
 .respuestas{
   text-align: left;
-  width: 70%;
+  width: 60%;
+  margin-right: 3em;
+  float: right;
+  font-size: 2em;
   display: inline-block;
 }
