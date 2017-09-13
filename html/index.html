@@ -4,27 +4,29 @@
     <meta charset="utf-8">
     <title>Sistema Gestion Kiosco</title>
     <link rel="stylesheet" href='css/styles.css'>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
   </head>
   <body>
-    <h1>Sistema de Gestion de Kiosco</h1>
-    <form action='home.html' method='post'>
-        <div class='container1'>
-          <label>Usuario: </label>
-            <input class ="campo" type='text' name='username' id='username' placeholder="Usuario..." /><br/>
-        </div>
-        <div class='container2'>
-          <label>Clave: </label>
-            <input class= "campo" type='password' name='password' id='password' placeholder="Clave..."/>
-        </div>
-        <!-- <label for="recordar"> Recordame</label> -->
-        <div class="container3">
-          <!-- <input type="checkbox" name="recordar" value=""> -->
-          <input class="boton_login" type='submit' name='Submit' value='Iniciar sesion' />
-          <br>
-        </div>
-    </form>
-    <a href="">¿Olvido contraseña?</a>
-
+    <div class="home">
+      <h1>Sistema de Gestion de Kiosco</h1>
+      <form class="login_form" action='home.html' method='post'>
+          <div class='container1'>
+            <label>Usuario: </label>
+              <input class ="campo" type='text' name='username' id='username' placeholder="Usuario..." /><br/>
+          </div>
+          <div class='container2'>
+            <label>Clave: </label>
+              <input class= "campo" type='password' name='password' id='password' placeholder="Clave..."/>
+          </div>
+          <!-- <label for="recordar"> Recordame</label> -->
+          <div class="container3">
+            <!-- <input type="checkbox" name="recordar" value=""> -->
+            <input class="boton_login" type='submit' name='Submit' value='Iniciar sesion' />
+            <br>
+          </div>
+      </form>
+      <a class="recordar_pass" href="#">¿Olvido su contraseña?</a>
+    </div>
 
   </body>
 </html>
