@@ -3,8 +3,9 @@
 }
 
 body {
+
   background-color: white;
-  font-family:monospace;
+  font-family: 'Merriweather', serif;
   /*max-width: 1200px;*/
   border: solid 1px;
   text-align: center;
@@ -18,84 +19,12 @@ body {
 }
 
 body h1{
-  font-family: 'Merriweather', serif;
+
   color:white;
   font-size: 3em;
   margin: 30px 0;
 }
 
-.recordar_pass{
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  color: white;
-}
-
-/*-------------------ESTILOS DEL  LOGIN------------*/
-
-.login_form{
-  border: solid 1px black;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.container1{
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-.container1 , .container2{
-  text-align: left;
-  background-color: white;
-  display: inline-block;
-  width: 50%;
-  height: 100px;
-  padding: 10px;
-}
-.container2{
-  border-top: 1px solid grey;
-}
-.container2 label , .container1 label{
-  display: block;
-  margin-top: 5px;
-  color: #333333;
-  margin-left: 10px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-size: 1.2em;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  opacity: 0.8;
-
-}
-
-.container3{
-  border-top: 1px solid grey;
-  background-color: green;
-  display: inline-block;
-  width: 50%;
-  height: 100px;
-  padding: 25px;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
-
-.campo{
-  border-style: none;
-  width: 70%;
-  margin: 10px;
-  padding: 0;
-  height: 30px;
-  font-size: 1.2em;
-}
-
-.boton_login{
-  background-color: green;
-  width: 100%;
-  border-style: none;
-  padding: 10px;
-  font-size: 24px;
-  color: white;
-  font-family: monospace;
-}
 
 /*---------------FIN ESTILO LOGIN--------------*/
 
