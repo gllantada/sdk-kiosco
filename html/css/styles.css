@@ -34,7 +34,7 @@ body h1{
 /*-------------------ESTILOS DEL  LOGIN------------*/
 
 .login_form{
-  border: solid 1px black;
+  /*border: solid 1px black;*/
   display: inline-block;
   margin-bottom: 10px;
 }
