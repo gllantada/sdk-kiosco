@@ -3,13 +3,19 @@
 }
 
 body {
-  background-color: #3582c9;
+  background-color: white;
   font-family:monospace;
-  max-width: 1200px;
+  /*max-width: 1200px;*/
   border: solid 1px;
   text-align: center;
 }
 
+.home{
+    background-color: #3582c9;
+    display: inline-block;
+    width: 100%;
+    /*border: solid 1px;*/
+}
 
 body h1{
   font-family: 'Merriweather', serif;
@@ -19,7 +25,7 @@ body h1{
 }
 
 .recordar_pass{
-  display: inline-block;
+  display: block;
   margin-top: 10px;
   font-size: 14px;
   color: white;
@@ -28,7 +34,9 @@ body h1{
 /*-------------------ESTILOS DEL  LOGIN------------*/
 
 .login_form{
-  /*border: solid 1px black;*/
+  border: solid 1px black;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .container1{
