@@ -3,7 +3,6 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #3582c9;
   font-family:monospace;
   max-width: 1200px;
@@ -13,11 +12,23 @@ body {
 
 
 body h1{
+  font-family: 'Merriweather', serif;
   color:white;
   font-size: 3em;
   margin: 30px 0;
-  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+}
 
+body a{
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+}
+
+/*-------------------ESTILOS DEL  LOGIN------------*/
+
+.login_form{
+  border: solid 1px black;
 }
 
 .container1{
@@ -60,13 +71,12 @@ body h1{
 }
 
 .campo{
-  /*background-color: rgb(244, 234, 16);*/
   border-style: none;
   width: 70%;
   margin: 10px;
   padding: 0;
   height: 30px;
-font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 .boton_login{
@@ -79,15 +89,11 @@ font-size: 1.2em;
   font-family: monospace;
 }
 
-.login{
-  background-color: rgb(120, 194, 121);
-  display: inline-block;
-  margin: 40px;
-  font-size: 20px;
-  padding: 20px;
-  border-radius: 12px;
-}
+/*---------------FIN ESTILO LOGIN--------------*/
 
+
+
+/*-------------ESTILO MAIN HEADER Y NAV-----------------*/
 
 .main_header{
   /*background-color: #F9B53C;*/
@@ -118,6 +124,7 @@ font-size: 1.2em;
 
 .nav_home a:hover {
 	background-color: #CC673B;
+  color: white;
 }
 
 .nav_home ul li ul {
@@ -128,9 +135,16 @@ font-size: 1.2em;
 	display: block;
 }
 
+/*-----------------------FIN ESTILO MAIN HEADER Y NAV-----------------------*/
+
+
+
+
+/*---------------ESTILO DE MENU ARTICULOS---------------------------*/
 .main_home{
   font-size: 33px;
 }
+
 
 .botonera{
   display: inline-block;
@@ -142,6 +156,7 @@ font-size: 1.2em;
   background-color: rgb(61, 61, 61);
   color: white;
 }
+
 
 .tabla_art{
   text-align: center;
@@ -158,6 +173,8 @@ font-size: 1.2em;
   border: 1px solid;
   padding: 10px;
 }
+
+/*---------------------FIN ESTILOS MENU ARTICULOS---------------------------*/
 
 .main_contacto{
   font-size: 16px;
