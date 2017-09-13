@@ -7,21 +7,24 @@
   </head>
   <body>
     <h1>Sistema de Gestion de Kiosco</h1>
-    <form class='login' action='home.html' method='post'>
-        <h3>Inicio de sesion</h3>
-        <div class='container'>
-            <input type='text' name='username' id='username' placeholder="Usuario" /><br/>
+    <form action='home.html' method='post'>
+        <div class='container1'>
+          <label>Usuario: </label>
+            <input class ="campo" type='text' name='username' id='username' placeholder="Usuario..." /><br/>
         </div>
-        <div class='container' style='height:60px;'>
-            <input type='password' name='password' id='password' placeholder="Contaseña"/>
+        <div class='container2'>
+          <label>Clave: </label>
+            <input class= "campo" type='password' name='password' id='password' placeholder="Clave..."/>
         </div>
-        <label for="recordar"> Recordame</label>
-        <input type="checkbox" name="recordar" value="">
-        <br>
-        <br>
-        <input type='submit' name='Submit' value='Enviar' />
-        <br>
+        <!-- <label for="recordar"> Recordame</label> -->
+        <div class="container3">
+          <!-- <input type="checkbox" name="recordar" value=""> -->
+          <input class="boton_login" type='submit' name='Submit' value='Iniciar sesion' />
+          <br>
+        </div>
     </form>
+    <a href="">¿Olvido contraseña?</a>
+
 
   </body>
 </html>
