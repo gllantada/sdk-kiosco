@@ -19,10 +19,25 @@ background-color: #064cff;
 
 
 body h1{
-
-
   color:white;
+  display: inline-block;
   font-size: 3em;
+
+  vertical-align: middle;
+  text-align: left;
+}
+
+.logo_index{
+  display: inline-block;
+  height: 120px;
+  vertical-align: middle;
+  margin-right: 2%;
+}
+
+.logo_h1{
+  display: inline-block;
+  width: 50%;
+  overflow: hidden;
   margin: 30px 0;
 }
 
