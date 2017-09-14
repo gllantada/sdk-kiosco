@@ -1,8 +1,18 @@
+
 *{
   box-sizing: border-box; /*Aplica para los elementos con tamaño definido*/
 }
-
-
+.init h1{
+  color: white;
+}
+.logo_index{
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
 body {
 
 background-image: url("../imagenes/bgimage.jpg");

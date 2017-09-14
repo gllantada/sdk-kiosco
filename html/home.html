@@ -4,15 +4,27 @@
     <meta charset="utf-8">
     <title>Home</title>
     <link rel="stylesheet" href="css/styles-home.css">
-    <link rel="stylesheet" href='css/styles.css'>
+
+        <link rel="stylesheet" href='css/styles.css'>
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
   </head>
   <body>
     <header class="main_header">
       <div class="init">
         <h1>SDK KIOSCO</h1>
-
+<img src='imagenes/candy.svg' alt="logo" class="logo_index">
       </div>
+
+      <a href="#" class="toggle-nav">
+        <span class="ion-navicon-round"></span>
+      </a>
+
+      <script>
+        $('.toggle-nav').click(function (){
+
+          $('.nav_home').slideToggle(350);
+        });
+      </script>
 
       <nav class="nav_home">
     		<ul>
