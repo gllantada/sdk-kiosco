@@ -2,6 +2,7 @@
   box-sizing: border-box; /*Aplica para los elementos con tamaño definido*/
 }
 
+
 body {
 
 background-image: url("../imagenes/bgimage.jpg");
@@ -43,12 +44,7 @@ background-size: cover;
 		margin: 0;
 		list-style: none;
 }
-/*.nav_home li{
-  border-right: solid 0.5px grey;
-  border-left: solid 0.5px grey;
-  border-top: solid 0.5px grey;
 
-}*/
 .menor{
 padding-right: 10px;
 }
