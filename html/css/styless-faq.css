@@ -54,3 +54,7 @@ h1{
 .respuestas li{
   color: white;
 }
+
+.respuestas p{
+  font-style: italic;
+}
