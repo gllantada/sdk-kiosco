@@ -4,8 +4,10 @@
 
 body {
 
-  background-color: grey;
+background-image: url("../imagenes/bgimage.jpg");
+background-size: cover;
   font-family: 'Merriweather', serif;
+/*color: white;*/
   /*max-width: 1200px;*/
   /*border: solid 1px;*/
   text-align: center;
@@ -13,24 +15,17 @@ body {
   padding:0;
 }
 
-
-/*---------------FIN ESTILO LOGIN--------------*/
-
-
-
-/*-------------ESTILO MAIN HEADER Y NAV-----------------*/
->>>>>>> e4626e196719611c99d094244919dc4bd5e63589
-
 .main_header{
-  background-color: #F9B53C;
+  /*background-color: #F9B53C;*/
   text-align: center;
+    background-color: #064cff;
+  width: 100%;
 }
 
 .nav_home{
   /*background-color: #F9B53C;*/
   font-size: 16px;
   display: inline-block;
-  /*position: absolute;*/
 }
 
 
@@ -42,16 +37,17 @@ body {
 }
 
 .nav_home a {
-  background-color: #F9B53C;
+  background-color: #064cff;
 	display: block;
 	padding: 20px;
 	text-decoration: none;
-	color: #191C26;
+	/*color: #191C26;*/
+  color: white;
 }
 
 .nav_home a:hover {
 	background-color: #CC673B;
-  color: white;
+  /*background-color: grey;*/
 }
 
 .nav_home ul li ul {
@@ -60,13 +56,5 @@ body {
 
 .nav_home ul li a:hover + ul, .nav_home ul li ul:hover {
 	display: block;
+  position: fixed;
 }
-
-/*-----------------------FIN ESTILO MAIN HEADER Y NAV-----------------------*/
-
-
-
-
-/*---------------ESTILO DE MENU ARTICULOS---------------------------*/
-
-/*---------------------FIN ESTILOS MENU ARTICULOS---------------------------*/
