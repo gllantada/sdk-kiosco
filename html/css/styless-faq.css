@@ -3,7 +3,9 @@
 
 
 h1{
+  margin: 2em;
   text-align: center;
+  color: blue;
 }
 
 .respuestas{
@@ -13,6 +15,7 @@ h1{
 }
 
 .respuestas li{
+  font-size: 1.3em;
   color: rgb(41, 10, 41);
 }
 

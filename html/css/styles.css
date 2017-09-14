@@ -16,16 +16,24 @@ background-size: cover;
 }
 
 .main_header{
+  color: white;
+
   /*background-color: #F9B53C;*/
   text-align: center;
+  margin: 0;
     background-color: #064cff;
   width: 100%;
+}
+.main_header h1{
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .nav_home{
   /*background-color: #F9B53C;*/
   font-size: 16px;
   display: inline-block;
+  /*margin-top: 5px;*/
 }
 
 
@@ -34,6 +42,15 @@ background-size: cover;
 		padding: 0;
 		margin: 0;
 		list-style: none;
+}
+/*.nav_home li{
+  border-right: solid 0.5px grey;
+  border-left: solid 0.5px grey;
+  border-top: solid 0.5px grey;
+
+}*/
+.menor{
+padding-right: 10px;
 }
 
 .nav_home a {

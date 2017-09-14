@@ -8,15 +8,28 @@
   margin: 30px;
   border-width: 1px;
   border-style: dashed;
+  border-radius: 15px;
   padding: 20px;
   background-color: rgba(190, 202, 226, 0.27);
   margin-top: 80px;
 }
-
+h1{
+  text-align: center;
+  color: blue;
+}
+.enviar{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: blue;
+  color: white;
+  padding: 1em;
+  border-radius: 15px;
+}
 .contacto input{
   margin: 10px;
 }
 
 .faq h3{
-  text-align: left;
+  text-align: center;
 }
