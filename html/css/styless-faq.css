@@ -1,18 +1,4 @@
 
-*{
-  box-sizing: border-box; /*Aplica para los elementos con tamaño definido*/
-}
-
-body {
-  background-color: rgba(231, 187, 117,0.7);
-  font-family: 'Merriweather', serif;
-  /*max-width: 1200px;*/
-  /*border: solid 1px;*/
-  margin: 0;
-  padding: 0;
-  /*text-align: center;*/
-}
-
 
 
 .main_header{

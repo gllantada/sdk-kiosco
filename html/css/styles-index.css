@@ -1,20 +1,4 @@
-*{
-  box-sizing: border-box; /*Aplica para los elementos con tamaño definido*/
-}
 
-body {
-  background-color: white;
-  font-family: 'Merriweather', serif;
-  /*max-width: 1200px;*/
-  border: solid 1px;
-  text-align: center;
-}
-.recordar_pass{
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  color: white;
-}
 
 /*-------------------ESTILOS DEL  LOGIN------------*/
 
@@ -22,6 +6,21 @@ body {
   border: solid 1px black;
   display: inline-block;
   margin-bottom: 10px;
+}
+
+
+body h1{
+
+  color:white;
+  font-size: 3em;
+  margin: 30px 0;
+}
+
+.home{
+    background-color: blue;
+    display: inline-block;
+    width: 100%;
+    /*border: solid 1px;*/
 }
 
 .container1{
@@ -50,6 +49,12 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   opacity: 0.8;
 
+}
+.recordar_pass{
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
 }
 
 .container3{
