@@ -6,54 +6,67 @@
     <link rel="stylesheet" href="css/styless-articulos.css">
     <link rel="stylesheet" href='css/styles.css'>
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <meta name="viewport" content="width=device-width initial-scale=1">
+
   </head>
   <body class"articulos">
     <div class="container5">
-    <header class="main_header">
-      <div class="init">
-        <h1>SDK KIOSCO</h1>
-<img src='imagenes/candy.svg' alt="logo" class="logo_index">
-      </div>
-      <nav class="nav_home">
-    		<ul>
-    			<li><a href="home.html">Inicio</a></li>
-    			<li><a href="#">Artículos</a>
-    				<ul>
-    					<li><a href="agregar_modif.html">Agregar / Modificar</a></li>
-    					<li><a href="#">Actualizar precios</a></li>
-    				</ul>
-    			</li>
-          <li><a href="#">Compras</a>
-            <ul>
-              <li><a href="#">Ingreso de mercadería</a></li>
-              <li><a href="#">Actualizar precios</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Ventas</a>
-            <ul>
-              <li><a href="#">Nueva venta</a></li>
-              <li><a href="#">Consultar ventas</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Caja</a>
-            <ul>
-              <li><a href="#">Caja diaria</a></li>
-              <li><a href="#">Reporte de Caja</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Administración</a>
-            <ul>
-              <li><a href="#">Usuarios</a></li>
-              <li><a href="#">Configuración</a></li>
-            </ul>
-          </li>
-    			<li><a href="preguntas_frecuentes.html">FAQ</a></li>
-    			<li><a href="contacto.html">Contacto</a></li>
-    		</ul>
-  	  </nav>
-    </header>
-    <section class="tabla_art">
+      <header class="main_header">
+        <div class="init">
+          <h1>SDK KIOSCO</h1>
+          <img src='imagenes/candy.svg' alt="logo" class="logo_index">
+        </div>
+        <a href="#" class="toggle-nav">
+          <span class="ion-navicon-round"></span>
+        </a>
+        <nav class="nav_home">
+          <ul>
+            <li><a href="home.html">Inicio</a></li>
+            <li><a href="#"class="sub-articulos">Artículos</a>
+              <ul>
+                <li><a href="agregar_modif.html"class="art">Agregar / Modificar</a></li>
+                <li><a href="#"class="art">Actualizar precios</a></li>
+              </ul>
+            </li>
+            <li><a href="#"class="comp">Compras</a>
+              <ul>
+                <li><a href="#"class="comp1">Ingreso de mercadería</a></li>
+                <li><a href="#"class="comp1">Actualizar precios</a></li>
+              </ul>
+            </li>
+            <li><a href="#"class="ven">Ventas</a>
+              <ul>
+                <li><a href="#"class="ven1">Nueva venta</a></li>
+                <li><a href="#"class="ven1">Consultar ventas</a></li>
+              </ul>
+            </li>
+            <li><a href="#"class="caja">Caja</a>
+              <ul>
+                <li><a href="#"class="caja1">Caja diaria</a></li>
+                <li><a href="#"class="caja1">Reporte de Caja</a></li>
+              </ul>
+            </li>
+            <li><a href="#" class="add">Administración</a>
+              <ul>
+                <li><a  href="#" class="add1">Usuarios</a></li>
+                <li><a href="#" class="add1">Configuración</a></li>
+              </ul>
+            </li>
+            <li><a href="preguntas_frecuentes.html">FAQ</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+
+      </header>
+      <div class="not-res">
+
+
+      <h1>Error!!!!!!</h1>
+      <h3>Esta Seccion de la Pagina Puede ser abierta unicamente en PC</h3><br>
+      <h3>Disculpe las molestias ocacionadas...</h3>
+  </div>
+      <section class="tabla_art">
       <h2>Modificación de Artículos</h2>
       <div class="botonera">
         <button type="button" name="nuevo">Nuevo</button>
@@ -124,5 +137,41 @@
       </div>
     </section>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  	<script>
+  		$('.toggle-nav').click(function (){
+  			$('.nav_home').slideToggle(350);
+  		});
+      </script>
+      <script>
+      $('.art').hide();
+      $('.sub-articulos').click(function(){
+        $('.art').slideToggle(350);
+      });
+      </script>
+      <script>
+      $('.caja1').hide();
+      $('.caja').click(function(){
+        $('.caja1').slideToggle(350);
+      });
+      </script>
+      <script>
+       $('.ven1').hide();
+        $('.ven').click(function(){
+          $('.ven1').slideToggle(350);
+      });
+      </script>
+      <script>
+          $('.add1').hide();
+          $('.add').click(function(){
+            $('.add1').slideToggle(350);
+          });
+  	</script>
+    <script>
+        $('.comp1').hide();
+        $('.comp').click(function(){
+          $('.comp1').slideToggle(350);
+        });
+  </script>
   </body>
 </html>

@@ -1,7 +1,18 @@
+.tabla_art{
+  display: none;
+}
+.not-res{
+  color: red;
+  margin:10px;
+}
 
-
-
-
+@media (min-width:640px) {
+.not-res{
+  display: none;
+}
+.tabla_art{
+  display: block;
+}
 .main_home{
   font-size: 33px;
 }
@@ -19,12 +30,13 @@ margin: 1% 0 0 0;
 }
 .botonera button{
   margin:0 0%;
-  padding: 1.2em 4.1em;
+  padding: 0.4em 2.1em;
   font-size: 1em;
   background-color: rgba(61, 61, 61,0.8);
   color: white;
 
 }
+
 
 .tabla_art{
   text-align: center;
@@ -33,7 +45,7 @@ margin: 1% 0 0 0;
 .tabla_art table {
 background-color: white;
   display: inline-block;
-  font-size: 1.2em;
+  font-size: 0.7em;
   border:1px solid black;
   border-collapse:separate;
 }
@@ -60,4 +72,21 @@ background-color: white;
   padding: 20px;
   border-radius: 12px;
 
+}
+}@media (min-width:1000px) {
+  .botonera button{
+    margin:0 0%;
+    padding: 1.2em 4.1em;
+    font-size: 1em;
+    background-color: rgba(61, 61, 61,0.8);
+    color: white;
+
+  }
+  .tabla_art table {
+  background-color: white;
+    display: inline-block;
+    font-size: 1.2em;
+    border:1px solid black;
+    border-collapse:separate;
+  }
 }
