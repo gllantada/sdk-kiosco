@@ -96,7 +96,9 @@ background-size: cover;
 
 @media(min-width:700px) {
 
-
+.main_header{
+  display: block;
+}
 .toggle-nav{
   display: none;
 }
