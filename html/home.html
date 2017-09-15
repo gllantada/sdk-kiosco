@@ -23,34 +23,34 @@
           <nav class="nav_home">
         		<ul>
         			<li><a href="home.html">Inicio</a></li>
-        			<li><a href="#">Artículos</a>
+        			<li><a href="#"class="sub-articulos">Artículos</a>
         				<ul>
-        					<li><a href="agregar_modif.html">Agregar / Modificar</a></li>
-        					<li><a href="#">Actualizar precios</a></li>
+        					<li><a href="agregar_modif.html"class="art">Agregar / Modificar</a></li>
+        					<li><a href="#"class="art">Actualizar precios</a></li>
         				</ul>
         			</li>
-              <li><a href="#">Compras</a>
+              <li><a href="#"class="comp">Compras</a>
                 <ul>
-                  <li><a href="#">Ingreso de mercadería</a></li>
-                  <li><a href="#">Actualizar precios</a></li>
+                  <li><a href="#"class="comp1">Ingreso de mercadería</a></li>
+                  <li><a href="#"class="comp1">Actualizar precios</a></li>
                 </ul>
               </li>
-              <li><a href="#">Ventas</a>
+              <li><a href="#"class="ven">Ventas</a>
                 <ul>
-                  <li><a href="#">Nueva venta</a></li>
-                  <li><a href="#">Consultar ventas</a></li>
+                  <li><a href="#"class="ven1">Nueva venta</a></li>
+                  <li><a href="#"class="ven1">Consultar ventas</a></li>
                 </ul>
               </li>
-              <li><a href="#">Caja</a>
+              <li><a href="#"class="caja">Caja</a>
                 <ul>
-                  <li><a href="#">Caja diaria</a></li>
-                  <li><a href="#">Reporte de Caja</a></li>
+                  <li><a href="#"class="caja1">Caja diaria</a></li>
+                  <li><a href="#"class="caja1">Reporte de Caja</a></li>
                 </ul>
               </li>
-              <li><a href="#">Administración</a>
+              <li><a href="#" class="add">Administración</a>
                 <ul>
-                  <li><a class="menor" href="#">Usuarios</a></li>
-                  <li><a href="#"class="menor">Configuración</a></li>
+                  <li><a  href="#" class="add1">Usuarios</a></li>
+                  <li><a href="#" class="add1">Configuración</a></li>
                 </ul>
               </li>
         			<li><a href="preguntas_frecuentes.html">FAQ</a></li>
@@ -72,6 +72,36 @@
   		$('.toggle-nav').click(function (){
   			$('.nav_home').slideToggle(350);
   		});
+      </script>
+      <script>
+      $('.art').hide();
+      $('.sub-articulos').click(function(){
+        $('.art').slideToggle(350);
+      });
+      </script>
+      <script>
+      $('.caja1').hide();
+      $('.caja').click(function(){
+        $('.caja1').slideToggle(350);
+      });
+      </script>
+      <script>
+       $('.ven1').hide();
+        $('.ven').click(function(){
+          $('.ven1').slideToggle(350);
+      });
+      </script>
+      <script>
+          $('.add1').hide();
+          $('.add').click(function(){
+            $('.add1').slideToggle(350);
+          });
   	</script>
+    <script>
+        $('.comp1').hide();
+        $('.comp').click(function(){
+          $('.comp1').slideToggle(350);
+        });
+  </script>
   </body>
 </html>

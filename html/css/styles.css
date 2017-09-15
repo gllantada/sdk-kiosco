@@ -5,7 +5,14 @@ body img{
   display: none;
 }
 .nav_home ul li ul {
-	display: none;
+
+
+
+}
+.nav_home ul li ul a{
+  background-color: white;
+  color: grey;
+
 }
 
 /*.nav_home ul li a:hover + ul, .nav_home ul li ul:hover {
@@ -20,6 +27,7 @@ body img{
   margin:0;
   padding: 0;
 }
+
 .nav_home li{
   display: block;
 width: 100%;
@@ -48,6 +56,9 @@ color: white;
 }
 .nav_home{
   display: none;
+}
+.art{
+display: block;
 }
 .init{
   display: none;
