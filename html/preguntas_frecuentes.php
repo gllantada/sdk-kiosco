@@ -22,10 +22,10 @@
         </a>
         <nav class="nav_home">
           <ul>
-            <li><a href="home.html">Inicio</a></li>
+            <li><a href="home.php">Inicio</a></li>
             <li><a href="#"class="sub-articulos">Artículos</a>
               <ul>
-                <li><a href="agregar_modif.html"class="art">Agregar / Modificar</a></li>
+                <li><a href="agregar_modif.php"class="art">Agregar / Modificar</a></li>
                 <li><a href="#"class="art">Actualizar precios</a></li>
               </ul>
             </li>
@@ -53,8 +53,8 @@
                 <li><a href="#" class="add1">Configuración</a></li>
               </ul>
             </li>
-            <li><a href="preguntas_frecuentes.html">FAQ</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="preguntas_frecuentes.php">FAQ</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
           </ul>
         </nav>
 
