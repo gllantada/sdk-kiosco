@@ -97,7 +97,7 @@ background-size: cover;
 @media(min-width:700px) {
 
 .main_header{
-  display: block;
+  display: block ;
 }
 .toggle-nav{
   display: none;
@@ -133,7 +133,7 @@ body img{
 
 .main_header{
   /*position: static;*/
-  display: block;
+  display: block ;
   color: white;
   text-align: center;
   margin: 0;
@@ -150,7 +150,7 @@ body img{
 .nav_home{
   /*background-color: #F9B53C;*/
   font-size: 16px;
-  display: inline-block;
+  display: inline-block !important;
   /*margin-top: 5px;*/
 }
 
@@ -177,6 +177,7 @@ padding-right: 10px;
 
 .nav_home a:hover {
 	background-color: #CC673B;
+
   /*background-color: grey;*/
 }
 
@@ -185,7 +186,7 @@ padding-right: 10px;
 }
 
 .nav_home ul li a:hover + ul, .nav_home ul li ul:hover {
-	display: block;
+	display: block ;
   position: fixed;
 }
 }
