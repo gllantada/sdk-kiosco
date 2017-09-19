@@ -1,0 +1,29 @@
+.header-venta{
+  display: block;
+  background-color: rgb(164, 164, 164);
+  height: 40px;
+  font-size: 20px;
+  color: white;
+  padding: 5px;
+
+}
+
+article{
+  margin-top: 20px;
+  border: 1px solid grey;
+  background-color: white;
+  height: 300px;
+  text-align: left;
+  color: black;
+  padding: 4px;
+}
+
+td input{
+  display: inline-block;
+  width: 120px;
+}
+
+table{
+  border: 1px dashed rgb(84, 88, 149);
+  
+}
