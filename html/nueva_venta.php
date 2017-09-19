@@ -24,8 +24,8 @@
           <th>Cantidad</th>
           <th>Codigo</th>
           <th>Descripcion</th>
-          <th>Precio Unit.</th>
-          <th>Precio Total</th>
+          <th>$ Precio Unit.</th>
+          <th>$ Precio Total</th>
         </tdead>
         <tbody>
           <tr>
