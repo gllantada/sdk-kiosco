@@ -36,7 +36,7 @@
           </li>
           <li><a href="#"class="ven">Ventas</a>
             <ul>
-              <li><a href="#"class="ven1">Nueva venta</a></li>
+              <li><a href="nueva_venta.php"class="ven1">Nueva venta</a></li>
               <li><a href="#"class="ven1">Consultar ventas</a></li>
             </ul>
           </li>
