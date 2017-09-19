@@ -11,7 +11,8 @@
   </head>
   <body>
   <div class="container5">
-<?php @include "header.php"; ?>
+<?php @include "header.php";
+?>
 
     <div class="main_contacto">
       <h1>Contactenos</h1>
@@ -32,6 +33,6 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
+<?php @include "footer.php"  ?>
   </body>
 </html>
