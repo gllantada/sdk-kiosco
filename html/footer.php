@@ -10,8 +10,10 @@
     <div class="footer">
       <a href="contacto.php">Contactanos</a>
 
-      <a href="#">Tel: (011)43287406</a>
+    <div class="telefono">
 
+      Tel: (011)43287406</div>
+<a href="agregar_modif.php">Preguntas Frecuentes</a>
 
     </div>
   </body>

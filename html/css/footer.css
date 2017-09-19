@@ -11,7 +11,7 @@ body{
   margin: 0;
   padding: 0;
   text-align: center;
-  height: 8vw;
+  height: 7vw;
   display: block ;
   width: 100%;
   color: white;
@@ -19,13 +19,20 @@ margin-bottom: 0;
 display: block; /*position:absolute;
   bottom: 0;*/
 margin-top: 10vw;
+border-radius: 15px;
+opacity: 0.5;
 }
-.footer a{
-  /*display: inline-block;*/
-  display: block;
-
+.footer a, .telefono{
+  /*margin-top: 50%;*/
+  display: inline-block;
+  /*display: block;*/
+/*margin-top: 50%;*/
   margin-top: 5px;
 padding: 5px;
   text-decoration: none;
   color: white;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 60px;
 }
