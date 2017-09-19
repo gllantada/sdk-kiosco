@@ -78,5 +78,6 @@
       $('.rta8').slideToggle(350);
     });
 </script>
+<?php @include "footer.php"  ?>
   </body>
 </html>
