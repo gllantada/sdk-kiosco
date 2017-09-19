@@ -1,3 +1,7 @@
+ a {
+text-decoration: none;
+ overflow: hidden;
+}
 
 p{
   margin-right: 1em;

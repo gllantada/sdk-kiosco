@@ -17,21 +17,21 @@
     <div
     <div class="respuestas">
         <ol>
-          <li class="preg1">El sistema no reconoce mi usuario.</li>
+          <a href="#"><li class="preg1">El sistema no reconoce mi usuario.</li></a>
           <p class="rta1">No es normal que pase, pero a veces el sistema falla. No te preocupes, escribinos a soporte-sdk@gmail.com y te responderemos en breve! Es importante que nos escribas desde la dirección de mail con la que te registraste.</p><br>
-          <li class="preg2">Al poner "¿Olvidó su contraseña?" no me la envía a mi mail.</li>
+          <a href="#"><li class="preg2">Al poner "¿Olvidó su contraseña?" no me la envía a mi mail.</li></a>
           <p class="rta2">Escribinos a soporte-sdk@gmail.com indicándonos tu nombre de usuario. En primera instancia reenviaremos la contraseña al mail con el que te registraste. En caso de no utilizar más ese correo procederemos a unas preguntas de seguridad.</p><br>
-          <li class="preg3">El sistema no me permite eliminar artículos, sólo modificarlos.</li>
+          <a href="#"><li class="preg3">El sistema no me permite eliminar artículos, sólo modificarlos.</li></a>
           <p class="rta3">Si estás intentando eliminar de a más de 1 (un) artículo, no vas a poder. Por el momento el sistema únicamente permite eliminar de un artículo a la vez. Estamos trabajando para en breve puedas eliminar varios productos a la vez!</p><br>
-          <li class="preg4">¿Puedo modificarle el código a cada producto o viene por defecto?</li>
+          <a href="#"><li class="preg4">¿Puedo modificarle el código a cada producto o viene por defecto?</li></a>
           <p class="rta4">Al agregar un nuevo producto, se le asigna un código por defecto. Pero podés modificarlo a tu gusto, haciéndo click derecho sobre el código.</p><br>
-          <li class="preg5">¿Cómo hago para asignarle una imagen a cada producto?</li>
+          <a href="#"><li class="preg5">¿Cómo hago para asignarle una imagen a cada producto?</li></a>
           <p class="rta5">Haciendo click en el botón "Modificar", te damos la opción de adjuntar una imagen a cada producto, tiene que ser cuadrada y que no supere los 70 KB. </p><br>
-          <li class="preg6">No puedo ver el reporte de ganancia de cada producto, sólamente el total.</li>
+          <a href="#"><li class="preg6">No puedo ver el reporte de ganancia de cada producto, sólamente el total.</li></a>
           <p class="rta6">En la sección "Reporte de Caja" podés filtrar las ganancias según la marca, el rubro o el código de cada producto, además del total de todos los productos. </p><br>
-          <li class="preg7">¿Cómo puedo filtrar las ventas por cada producto?</li>
+          <a href="#"><li class="preg7">¿Cómo puedo filtrar las ventas por cada producto?</li></a>
           <p class="rta7">Al igual que la sección "Reporte de Caja", la sección "Consultar ventas", que se encuentra dentro del menú "Ventas", te permite filtrar las ventas según la marca, el rubro y el código de cada producto, además del total de todos los productos.</p><br>
-          <li class="preg8">¿Puedo asociar más de un usuario por cuenta?</li>
+          <a href="#"><li class="preg8">¿Puedo asociar más de un usuario por cuenta?</li></a>
           <p class="rta8">Sí. En el menú "Administración", hay una solapa de nombre "Usuarios" que te permite agregar hasta un máximo de 3 usuarios y administrarlos desde la misma cuenta.</p><br>
         </ol>
     </div>
