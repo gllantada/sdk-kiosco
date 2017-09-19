@@ -18,7 +18,7 @@
 
       <h1>Error!!!!!!</h1>
       <h3>Esta Seccion de la Pagina Puede ser abierta unicamente en PC</h3><br>
-      <h3>Disculpe las molestias ocacionadas...</h3>
+      <h3>Disculpe las molestias ocasionadas...</h3>
   </div>
       <section class="tabla_art">
       <h2>Modificación de Artículos</h2>
@@ -53,7 +53,7 @@
         </tr>
         <tr>
           <td>12368798733</td>
-          <td>Sprite 2,25ML</td>
+          <td>Sprite 2,25L</td>
           <td>Coca Cola</td>
           <td>Gaseosas</td>
           <td>47</td>
