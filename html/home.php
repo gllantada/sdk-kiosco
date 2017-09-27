@@ -19,6 +19,6 @@
         </div>
         <img src="imagenes/kiosco-imagen.jpg" alt="">
     </div>
-<?php @include "footer.php"  ?>
+    <?php @include "footer.php"  ?>
   </body>
 </html>

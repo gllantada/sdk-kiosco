@@ -13,7 +13,7 @@
     <div class="telefono">
 
       Tel: (011)43287406</div>
-<a href="agregar_modif.php">Preguntas Frecuentes</a>
+<a href="preguntas_frecuentes.php">Preguntas Frecuentes</a>
 
     </div>
   </body>

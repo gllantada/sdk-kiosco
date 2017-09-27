@@ -52,6 +52,7 @@
               <li><a href="#" class="add1">Configuración</a></li>
             </ul>
           </li>
+          <li><a href="index.php">Salir</a></li>
         </ul>
       </nav>
 
