@@ -52,8 +52,6 @@
               <li><a href="#" class="add1">Configuración</a></li>
             </ul>
           </li>
-          <li><a href="preguntas_frecuentes.php">FAQ</a></li>
-          <li><a href="contacto.php">Contacto</a></li>
         </ul>
       </nav>
 

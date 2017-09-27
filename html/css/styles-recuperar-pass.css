@@ -1,0 +1,16 @@
+.main_contacto button{
+  position: relative;
+  left: 50%;
+  width: 15em;
+  transform: translateX(-50%);
+  background-color: blue !important;
+  color: white;
+  padding: 0.5em;
+  border-radius: 15px;
+}
+
+
+h3{
+  display: block;
+  color: rgb(136, 184, 228);
+}

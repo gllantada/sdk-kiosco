@@ -33,60 +33,64 @@
 
 
       <table>
-        <tr>
-          <th>Código</th>
-          <th>Descripción</th>
-          <th>Marca</th>
-          <th>Rubro</th>
-          <th>Precio Venta</th>
-          <th>Precio Contado</th>
-          <th>Stock</th>
-        </tr>
-        <tr>
-          <td>12334</td>
-          <td>Coca cola 1,5L</td>
-          <td>Coca Cola</td>
-          <td>Gaseosas</td>
-          <td>45</td>
-          <td>37</td>
-          <td>20</td>
-        </tr>
-        <tr>
-          <td>12368798733</td>
-          <td>Sprite 2,25L</td>
-          <td>Coca Cola</td>
-          <td>Gaseosas</td>
-          <td>47</td>
-          <td>39</td>
-          <td>16</td>
-        </tr>
-        <tr>
-          <td>123656543</td>
-          <td>Coca Cola 600ml</td>
-          <td>Coca Cola</td>
-          <td>Gaseosas</td>
-          <td>25</td>
-          <td>19</td>
-          <td>30</td>
-        </tr>
-        <tr>
-          <td>cabecera</td>
-          <td>cuerpo</td>
-          <td>cuerpo</td>
-          <td>cabecera</td>
-          <td>cuerpo</td>
-          <td>cuerpo</td>
-          <td>cuerpo</td>
-        </tr>
-        <tr>
-          <td>cabecera</td>
-          <td>cuerpo</td>
-          <td>cuerpo</td>
-          <td>cabecera</td>
-          <td>cuerpo</td>
-          <td>cuerpo</td>
-          <td>cuerpo</td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Marca</th>
+            <th>Rubro</th>
+            <th>Precio Venta</th>
+            <th>Precio Contado</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12334</td>
+            <td>Coca cola 1,5L</td>
+            <td>Coca Cola</td>
+            <td>Gaseosas</td>
+            <td>45</td>
+            <td>37</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td>12368798733</td>
+            <td>Sprite 2,25L</td>
+            <td>Coca Cola</td>
+            <td>Gaseosas</td>
+            <td>47</td>
+            <td>39</td>
+            <td>16</td>
+          </tr>
+          <tr>
+            <td>123656543</td>
+            <td>Coca Cola 600ml</td>
+            <td>Coca Cola</td>
+            <td>Gaseosas</td>
+            <td>25</td>
+            <td>19</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td>cabecera</td>
+            <td>cuerpo</td>
+            <td>cuerpo</td>
+            <td>cabecera</td>
+            <td>cuerpo</td>
+            <td>cuerpo</td>
+            <td>cuerpo</td>
+          </tr>
+          <tr>
+            <td>cabecera</td>
+            <td>cuerpo</td>
+            <td>cuerpo</td>
+            <td>cabecera</td>
+            <td>cuerpo</td>
+            <td>cuerpo</td>
+            <td>cuerpo</td>
+          </tr>
+        </tbody>
       </table>
       </div>
     </section>
