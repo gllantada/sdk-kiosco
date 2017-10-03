@@ -1,12 +1,48 @@
-.tabla_art{
-  display: none;
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  line-height: 1.15;
 }
-.not-res{
-  color: red;
-  margin:10px;
+table {
+
+  border-collapse: collapse;
+}
+th {
+  text-align: left;
+}
+.table-master{
+  max-width: 700px;
+  overflow-x: scroll;
 }
 
-@media (min-width:640px) {
+
+.table {
+
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  overflow-x: visible;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #e9ecef;
+}
+
+
+
+
+.tabla_art{
+  /*display: none;*/
+}
+.not-res{
+  display: none;
+}
+
+/*@media (min-width:640px) {
 .not-res{
   display: none;
 }
@@ -21,13 +57,13 @@
   display: block;
 
   /*margin: 15px 0;*/
-}
-.table-master{
-margin: 1% 0 0 0;
+/*}*/
+/*.table-master{
+margin: 1% 0 0 0;*/
 /*background-color: white;*/
 
   /*background-color: red;*/
-}
+/*}*/
 .botonera button{
   margin:0 0%;
   padding: 0.4em 2.1em;
@@ -38,7 +74,7 @@ margin: 1% 0 0 0;
 }
 
 
-.tabla_art{
+/*.tabla_art{
   text-align: center;
 }
 
@@ -53,7 +89,7 @@ background-color: white;
 .tabla_art th, td {
   border: 1px solid;
   padding: 10px;
-}
+}*/
 
 .main_contacto{
   font-size: 16px;
@@ -71,9 +107,8 @@ background-color: white;
   font-size: 20px;
   padding: 20px;
   border-radius: 12px;
-
 }
-}@media (min-width:1000px) {
+/*}@media (min-width:1000px) {
   .botonera button{
     margin:0 0%;
     padding: 1.2em 4.1em;
@@ -89,4 +124,4 @@ background-color: white;
     border:1px solid black;
     border-collapse:separate;
   }
-}
+}*/
