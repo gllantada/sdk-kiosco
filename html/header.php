@@ -48,11 +48,8 @@
           </li>
           <li><a href="#" class="add">Administración</a>
             <ul>
-<<<<<<< HEAD
+
               <li><a  href="nvo-user.php" class="add1">Usuarios</a></li>
-=======
-              <li><a  href="admin_usuarios.php" class="add1">Usuarios</a></li>
->>>>>>> 03b48643e7e8e14c0153a8895555be65ba1647f8
               <li><a href="#" class="add1">Configuración</a></li>
             </ul>
           </li>

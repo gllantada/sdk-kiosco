@@ -5,6 +5,7 @@
     <title>Nuevo Usuario</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/styles-contacto.css">
+    <link rel="stylesheet" href="css/styles-nvo-user.css">
   </head>
   <body>
     <?php @include "header.php"; ?>
@@ -21,6 +22,12 @@
     <input type="text" name="tel" placeholder="Telefono....." >
     <label for="email">Email: </label>
     <input type="text" name="email" placeholder="Email....." >
+<div class="botonera">
+
+
+    <input class="buton" type="submit" name="crear" value="Crear">
+    <input class="buton" type="submit" name="descartar" value="descartar">
+</div>
   </form>
 
 </div>

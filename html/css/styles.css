@@ -9,7 +9,7 @@ body img{
 
 .nav_home ul li ul a{
   background-color: white;
-  color: grey;
+  color: white;
 
 }
 
@@ -40,6 +40,7 @@ margin:auto;
 font-size: 1em;
 text-align: center;
 margin: auto;
+
 background-image:url("../imagenes/fondo-index.png");
 
 padding: 10px;
@@ -194,5 +195,6 @@ padding-right: 10px;
 .nav_home ul li a:hover + ul, .nav_home ul li ul:hover {
 	display: block ;
   position: fixed;
+  z-index: 5;
 }
 }

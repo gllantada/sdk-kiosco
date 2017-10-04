@@ -30,8 +30,8 @@ function validarLogin($login){
   $file = "usuarios.json";
   $db = file_get_contents($file);
   $data = json_decode($db, true);
-  // dump ($login);
-  // dump ($data);
+  dump ($login);
+  dump ($data);
   // foreach ($data as $key => $value)
   //   echo ($key[$value]);
   // echo ($login['username']);
