@@ -18,7 +18,7 @@
                   <h1> Gestión de Kiosco</h1>
                   <!-- <img src='imagenes/candy.svg' alt="logo" class="logo_index"> -->
           </div>
-          <form class="login_form" action='home.php' method='post'>
+          <form class="login_form" action='validar_login.php' method='post'>
               <div class='container1'>
                 <label>Usuario: </label>
                   <input class ="campo" type='text' name='username' id='username' placeholder="Usuario..." /><br/>
