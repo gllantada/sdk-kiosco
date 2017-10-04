@@ -48,7 +48,7 @@
           </li>
           <li><a href="#" class="add">Administración</a>
             <ul>
-              <li><a  href="#" class="add1">Usuarios</a></li>
+              <li><a  href="nvo-user.php" class="add1">Usuarios</a></li>
               <li><a href="#" class="add1">Configuración</a></li>
             </ul>
           </li>
