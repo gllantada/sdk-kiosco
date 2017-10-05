@@ -1,241 +1,213 @@
 <?php
+// inicio la variable session
+  session_start();
+// si el usuario habia checkeado el "recordarme", y guardamos al mismo en sus cookies, preguntamos si existe y lo guardamos en nuestra session, para que quede logueado.
+  if (isset($_COOKIE["idUser"])) {
+      $_SESSION["idUser"] = $_COOKIE["idUser"];
+  }
+//creo la funcion para validar el registro, la cual recibiria $_POST por parametro.
+// al ser una funcion debemos declararle un parametro a recibir.
+  function validarInformacion($informacion) {
+	  // creo array vacio para guardarme los errores
+    $errores = [];
+	// valido formulario de registro eliminando los espacios y preguntando si el largo del string es igual a cero.
+    $nombre = trim($informacion["nombre"]);
 
-// array global para uso en las funciones
-$erros_file = [
-  1 => 'La foto de perfil subida excede el tamaño necesario',
-  2 => 'La foto de perfil subida excede el tamaño necesario definido en el front',
-  3 => 'La foto de perfil ha sido subida parcialmente',
-  4 => 'La foto de perfil es requerida',
-  6 => 'Falta la carpeta temporal',
-  7 => 'No se pudo escribir el fichero en el disco. Verificar perimsos',
-  8 => 'Otra aplicacion ha detenido la subida de la foto, verificar configuracion del server.'
-];
-
-// defino los campos que quiero persistir
-$persistence = [
-  "useremail",
-  "name",
-  "lastname",
-  "username"
-];
-
-// variable para mensajes de errores
-$errors;
-
-/**
- * @param array $values
- * @param array $photo
- */
-function validarLogin($login){
-  $file = "usuarios.json";
-  $db = file_get_contents($file);
-  $data = json_decode($db, true);
-  dump ($login);
-  dump ($data);
-  // foreach ($data as $key => $value)
-  //   echo ($key[$value]);
-  // echo ($login['username']);
-  foreach ($data as $key => $value) {
-    foreach ($value as $key1 => $value1) {
-      echo ($value1);
-      echo "<br>";
+    if (strlen($nombre) == 0) {
+      $errores["nombre"] = "No ingresaste tu nombre";
     }
-  }
-}
 
-function doSave($values, $photo) {
-  validData($values, $photo);
-  insertInJson($values, $photo);
-}
+    $usuario = trim($informacion["usuario"]);
 
-function validData($values, $photo) {
-  // se incluye al array declarado globalmente
-  global $erros_file;
+    if (strlen($usuario) < 7) {
+      $errores["usuario"] = "El usuario debe tener más de 7 caracteres";
+    }
 
-  //defino el mensaje de errores de los campos
-  global $errors;
+    $mail = trim($informacion["mail"]);
 
-  // defino una variable para la comparacion de las claves
-  $isEmptyPass = false;
-  $isEmptyEqua = false;
-
-  // de fino el array de traduccion para los mensajes
-  $translate = [
-    "useremail"  => "Correo electronico",
-    "name"       => "Nombre",
-    "lastname"   => "Apellido",
-    "username"   => "Nombre de usuario",
-    "pass"       => "Clave",
-    "equal_pass" => "Repita la clave"
-  ];
-
-  // se recorre la variable $values en forma de evaluar la key => value
-  foreach ($values as $key => $value) {
-    if (empty($values[$key])) // verifico si los datos estan vacios
-      $errors .= "El Campo $translate[$key] es requerido<br>";
-    else // en caso contrario persisto la data en el array values
-      if ($key != 'pass' && $key != 'equal_pass')
-        setcookie($key, $values[$key]);
+    if (strlen($mail) == 0) {
+      $errores["mail"] = "Che, no pusiste el mail :(";
+    } else if (! filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+      $errores["mail"] = "El mail debe ser un mail";
+    } else if (buscarPorMail($mail) != false) {
+      $errores["mail"] = "El mail ya existe";
+    }
+    if ($informacion["password"] == "") {
+      $errores["password"] = "Llena la contraseña";
+    }
+    if ($informacion["cpassword"] == "") {
+      $errores["cpassword"] = "Confirmá tu contraseña";
+    }
+    if ($informacion["password"] != "" && $informacion["cpassword"] != "" && $informacion["password"] != $informacion["cpassword"]) {
+      $errores["password"] = "Las dos contraseñas deben ser iguales";
+    }
+// devuelvo el array con los errores guardados
+    return $errores;
   }
 
-  // se valida la la foto tiene errores
-  if ($photo["profile_pic"]["error"] != UPLOAD_ERR_OK) {
-    $errors .= $erros_file[$photo["profile_pic"]["error"]];
+  function guardarImagen($unaImagen, $errores) {
+	  // si el error da 0, es porque esta ok y entro al if
+		if ($_FILES[$unaImagen]["error"] == UPLOAD_ERR_OK)
+		{
+			// me guardo el nombre del archivo para luego obtener la extencion
+			$nombre=$_FILES[$unaImagen]["name"];
+			// me guardo el archivo "fisico"
+			$archivo=$_FILES[$unaImagen]["tmp_name"];
+			// me guardo la extencion usando la variable donde me guarde el nombre
+			$ext = pathinfo($nombre, PATHINFO_EXTENSION);
+			// si la extencion es correcta entro a este if
+      if ($ext == "jpg" || $ext == "jpeg" || $ext == "png") {
+		  // me traigo la ruta donde esta ÉSTE ARCHIVO guardado
+  			$miArchivo = dirname(__FILE__);
+		// a esa ruta le agrego /IMG/ para entrar a la carpeta donde guardaré la imagen
+  			$miArchivo = $miArchivo . "/img/";
+	// le asigno al final de la ruta el nombre del usuario y la extencion es decir  blablabla/img/NombreDeUsuario . jpg , jpeg ó png
+  			$miArchivo = $miArchivo . $_POST["usuario"] . "." . $ext;
+	// guardo el archivo, almacenado en la variable $archivo, con la extencion y nombre que almacenamos en $miArchivo
+  			move_uploaded_file($archivo, $miArchivo);
+      }
+      else {
+		 // en caso de que de que la extencion esté mal devuelvo éste error
+        $errores["imgPerfil"] = "Ey, subi una foto. No cualquier cosa";
+      }
+		} else {
+      // en caso de que el error NO de 0, tiro el error siguiente.
+      $errores["imgPerfil"] = "No se pudo subir la foto :(";
+    }
+	// devuelvo array con errores de foto.
+    return $errores;
+	}
+
+
+	// funcion crearusuario recibira los datos por $_POST y lo convierte en un array
+	  function crearUsuario($datos) {
+	    $usuario = [
+	      "nombre" => $datos["nombre"],
+	      "usuario" => $datos["usuario"],
+	      "mail" => $datos["mail"],
+	      "password" => password_hash($datos["password"], PASSWORD_DEFAULT)
+	    ];
+	// luego de convertirlo en array, guardo en la posicion ID la ID correspondiente a éste usuario
+	    $usuario["id"] = traerNuevoId();
+	// devuelvo el array con los datos para guardar en json
+	    return $usuario;
+	  }
+
+// creo guncion para guardar usuario en json que recibe un array con los datos del usuario
+  function guardarUsuario($usuario) {
+  // "transformo" el array con datos de usuario a formato Json
+    $json = json_encode($usuario);
+// le agrego un salto de linea (un enter), al final de la linea
+    $json = $json . PHP_EOL;
+// guardo el usuario en "usuarios.json" desde la ultima linea, en caso de que no exista el archivo .json, le sentencia "FILE_APPEND" crea el archivo.
+    file_put_contents("usuarios.json", $json, FILE_APPEND);
   }
 
-  // verifico si hay errores y se hizo la peticion POST
-  if ($errors != "") {
-    setcookie('error', $errors, time() + 5);
-    //redirect to index
-    Redirect();
+// creo la funcion traerTodos para traerme TODOS los usuarios que tenga en mi json
+  function traerTodos() {
+    //me traigo todo el json, en formato json
+    $archivo = file_get_contents("usuarios.json");
+
+    // esto me arma un array, en cada clave, un usuario entero
+    $usuariosJSON = explode(PHP_EOL, $archivo);
+// como guardamos los usuarios con un enter al final, borramos ese ultimo enter vacio.
+    array_pop($usuariosJSON);
+// creo un array vacio para guardarme proximamente el array de usuarios en formato php
+    $usuariosFinal = [];
+
+//"foricheo" los usuarios en formato json y me guardo cada usuario ya convertido en formato array de php
+    foreach($usuariosJSON as $json) {
+      $usuariosFinal[] = json_decode($json, true);
+    }
+// devuelvo el array con usuario en formato php
+    return $usuariosFinal;
   }
 
-}
-
-/**
- * @param $user
- * @param $photo
- */
-function insertInJson($user, $photo) {
-
-  global $errors;
-
-  // Nombre del archivo a abrir
-  $file = "usuarios.json";
-
-  //extraigo el contenido y cierro el archivo
-  $db = file_get_contents($file);
-
-  //convierto el contendido del json en array
-  $data = json_decode($db, true);
-
-  // guardo la foto con la funcion savePhoto
-  // esta funcion retornará una string con el nombre de la foto guardada
-  // o un array con una clave error y su valor un mensaje del error ocurrido
-  $pathPhoto = savePhoto($photo, $user['useremail']);
-
-  // Verifico si la variable $pathPhoto es un array, si es así, es porque ocurrió un error
-  // al guradar la imagen
-  if (is_array($pathPhoto))
-    // set la variable global error
-    $errors = $pathPhoto["error"];
-
-  // antes de definir la data, verificamos que los claves sean iguales
-  if (md5($user['pass']) != md5($user['equal_pass']))
-    // set la variable global error
-    $errors = 'Las claves no coinciden, intente de nuevo';
-
-  // antes de definir la data, verificamos el email ya existe
-  if (array_key_exists($user['useremail'], $data))
-    // set la variable global error
-    $errors = 'Ya existe un usuario con este email';
-
-  // verifico si hay errores y se hizo la peticion POST
-  if ($errors != "") {
-    setcookie('error', $errors, time() + 5);
-    //redirect to index
-    Redirect();
+// creo funcion para traer ultimo id
+  function traerNuevoId() {
+	// me traigo todos los usuarios
+    $usuarios = traerTodos();
+// su el count de usuarios me da cero, es decir el array esta vacio
+// devuelvo un 1, ya que seria el primer ID
+    if (count($usuarios) == 0) {
+      return 1;
+    }
+// en caso de que haya usuarios agarro el ultimo usuario
+    $elUltimo = array_pop($usuarios);
+// pregunto por le id de ese ultimo usuario
+    $id = $elUltimo["id"];
+// a ese ID le sumo 1, para asignarle el nuevo ID al usuario  que se esta registrando
+    return $id + 1;
   }
 
-  // se crea un array con los dato a guardar en el json
-  $new_user = [
-    "name"      => $user['name'],
-    "lastname"  => $user['lastname'],
-    "username"  => $user['username'],
-    "pass"      => md5($user['pass']),
-    "photo"     => $pathPhoto,
-  ];
-
-  // agreso al usuario nuevo al array definiendo como clave el email
-  $data[$user['useremail']] = $new_user;
-
-  // convierto el array en string para poder guardarlo en en archivo
-  $data = json_encode($data);
-
-  // inserto el contenido del array y cierro el archivo
-  file_put_contents($file, $data);
-
-  setcookie('success', 'Usuario registrado con exíto!', time() + 5);
-  // regreso al form
-  Redirect("delete_coockies.php");
-}
-
-function leerUsuarios(){
-  $file = 'usuarios.json';
-  $db = file_get_contents($file);
-  $data = json_decode($db, true);
-  var_dump ($data);
-  echo "<br>";
-  foreach ($data as $key => $value){
-    foreach ($key as $value => $value2)
-      var_dump($value2);
-  // return($data);
+// funcion para buscar usuarios por email, que recibe un email por parametro
+  function buscarPorMail($mail) {
+// me traigo todos los usuarios
+    $todos = traerTodos();
+// los "foricheo"  preguntando por cada
+    foreach ($todos as $usuario) {
+// si el mail por el que pregunto, existe, revuelvo el usuario dueño del mismo
+      if ($usuario["mail"] == $mail) {
+        return $usuario;
+      }
+    }
+// si el mail no existe, devuelvo false.
+    return false;
   }
-}
 
-/**
- * @param $photo
- * @param $name
- * @return array|string
- */
-function savePhoto($photo) {
 
-  // se incluye al array declarado globalmente
-  global $erros_file;
+// funcion para buscar por ID, recibe un ID por parametro
+  function buscarPorId($id) {
+	 // me traigo todos los usuarios
+    $todos = traerTodos();
+// los "foricheo" y si existe el id por el cual pregunto, devuelvo al usuario dueño del mismo
+    foreach ($todos as $usuario) {
+      if ($usuario["id"] == $id) {
+        return $usuario;
+      }
+    }
+// si mi json no tiene ese ID devuelvo false
+    return false;
+  }
 
-  if ($photo["profile_pic"]["error"] == UPLOAD_ERR_OK) {
-
-    // Capturo el nombre
-    $name = $photo["profile_pic"]["name"];
-
-    // Capturo el archivo que se almacena en una carpeta temporal
-    $picture = $photo["profile_pic"]["tmp_name"];
-
-    // Obtenemos la extensión del archivo
-    $ext = pathinfo($name, PATHINFO_EXTENSION);
-
-    if ($ext == "jpg" || $ext == "jpeg" || $ext == "png") {
-      $today = new DateTime("now");
-      $name_pic = date_format($today, "YmdHis")."_photo.";
-
-      // Defino la ruta y el nombre con el cual se guradará la foto
-      $path_and_name = dirname(__FILE__) . "/img-perfil/". $name_pic . $ext;
-
-      // Guardamos la imagen
-      move_uploaded_file($picture, $path_and_name);
-
-      // retormo el nombre de la imagen con la que fue guardada
-      return $name_pic . $ext;
-
+// funcion de validacion para el form del logueo
+  function validarLogin($datos) {
+// creo array vacio en el cual devolver los errores
+    $errores = [];
+// limpio los espacios del input mail
+    $mail = trim($datos["mail"]);
+// hago la validacion correspondiente al mail
+    if (strlen($mail) == 0) {
+      $errores["mail"] = "Che, no pusiste el mail :(";
+    } else if (! filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+      $errores["mail"] = "El mail debe ser un mail";
+  }// si no existe el mail que se esta queriendo loguear, aviso que ese usuario no existe
+	else if (buscarPorMail($mail) == false) {
+      $errores["mail"] = "No existe el usuario";
     } else {
-      return [
-        'error' => 'El tipo de archivo para la foto de perfil no es valido (jpg, jpeg, png)'
-      ];
+      // si el mail existe, me guardo al usuario dueño del mismo
+      $usuario = buscarPorMail($mail);
+// pregunto si coindice el passworn del logeo con el del usuario traido del json
+      if (password_verify($datos["password"], $usuario["password"]) == false) {
+        $errores["mail"] = "Error de login";
+      }
     }
-  } else {
-    return [
-      'error' => $erros_file[$photo["profile_pic"]["error"]]
-    ];
+
+// devuelvo array de errores con errores de logeo en caso de que existan
+    return $errores;
   }
 
-}
+// me guardo el id del usuario en session para mantenerlo logueado
+  function loguear($usuario) {
+    $_SESSION["idUser"] = $usuario["id"];
+  }
+// la funcion esta logueado pregunta si hay algun id guardado en session
+  function estaLogueado() {
+    return isset($_SESSION["idUser"]);
+  }
+// esta funcion me trae el id del usuario logueado
+  function usuarioLogueado() {
+    return buscarPorId($_SESSION["idUser"]);
+  }
 
-/**
- * @param string $url
- * @param bool $permanent
- */
-function Redirect($url = 'admin_usuarios.php', $permanent = false) {
-  header('Location: ' . $url, true, $permanent ? 301 : 302);
-  exit();
-}
-
-/**
- * @param $data
- */
-function dump($data) {
-  echo "<pre>";
-  var_dump($data);
-  echo "<br>";
-  print_r($data);
-  echo "</pre>";
-}
+?>

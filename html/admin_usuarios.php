@@ -1,3 +1,54 @@
+<?php
+// traigo hoja de funciones
+  require_once("funciones.php");
+// si la persona esta logueada, la redirijo al inicio.
+
+  //declaro variables vacias para persistir datos
+
+  $nombre = "";
+  $apellido = "";
+  $usuario = "";
+  $mail = "";
+
+// declaro  array de errores vacio
+  $errores = [];
+// si me llega algo por post entro a este if
+  if ($_POST) {
+    // valido los datos del form y me guardo los errores en $errores
+    $errores = validarInformacion($_POST);
+// si no tengo errores, entro a este if
+    if (count($errores) == 0) {
+// guardo la imagen y en caso de que haya problemas, guardo el error aqui
+      $errores = guardarImagen("imgPerfil", $errores);
+// si tampoco hubo error en la carga de la imagen entro a este if
+      if (count($errores) == 0) {
+// creo un array con los datos por $_POST y lo guardo en $usuario
+        $usuario = crearUsuario($_POST);
+// guardo ese array en mi JSON
+        guardarUsuario($usuario);
+// redirecciono a felicidad
+        header("Location:felicidad.php");exit;
+      }
+    }
+
+// si no tuve errores de validacion, persisto los datos.
+    if (!isset($errores["nombre"])) {
+        $nombre = $_POST["nombre"];
+    }
+    if (!isset($errores["edad"])) {
+        $edad = $_POST["edad"];
+    }
+    if (!isset($errores["mail"])) {
+        $mail = $_POST["mail"];
+    }
+    if (!isset($errores["usuario"])) {
+        $usuario = $_POST["usuario"];
+    }
+
+  }
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,69 +61,45 @@
   </head>
   <body>
     <?php @include "header.php"?>
+    <?php if(count($errores) > 0) { ?>
+      <ul>
+          <?php foreach($errores as $error) { ?>
+            <li>
+              <?=$error?>
+            </li>
+          <?php } ?>
+      </ul>
+    <?php } ?>
     <article class="usuarios">
       <h2>Registro de nuevo usuario</h2>
-      <?php echo (isset($_COOKIE['error']) && !empty($_COOKIE['error'])) ? $_COOKIE['error'] : ""; ?>
-      <?php echo (isset($_COOKIE['success']) && !empty($_COOKIE['success'])) ? $_COOKIE['success'] : ""; ?>
-
-      <form action="guardar.php" method="post" enctype="multipart/form-data">
-
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Nombre"
-          value="<?php echo (isset($_COOKIE['name']) && !empty($_COOKIE['name'])) ? $_COOKIE['name'] : ""; ?>">
-        <br><br>
-
-        <input
-          type="text"
-          name="lastname"
-          id="lastname"
-          placeholder="Apellido"
-          value="<?php echo (isset($_COOKIE['lastname']) && !empty($_COOKIE['lastname'])) ? $_COOKIE['lastname'] : ""; ?>">
-        <br><br>
-
-        <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Nombre de usuario"
-          value="<?php echo (isset($_COOKIE['username']) && !empty($_COOKIE['username'])) ? $_COOKIE['username'] : ""; ?>">
-        <br><br>
-
-        <input
-          type="email"
-          name="useremail"
-          id="useremail"
-          placeholder="Correo electronico"
-          value="<?php echo (isset($_COOKIE['useremail']) && !empty($_COOKIE['useremail'])) ? $_COOKIE['useremail'] : ""; ?>">
-        <br><br>
-
-        <input
-          type="password"
-          name="pass"
-          id="pass"
-          placeholder="Contraseña">
-        <br><br>
-
-        <input
-          type="password"
-          name="equal_pass"
-          id="equal_pass"
-          placeholder="Repita la contraseña">
-        <br><br>
-
-        <input
-          type="file"
-          name="profile_pic"
-          id="profile_pic" accept="image/*">
-        <br><br>
-
-        <button type="submit">
-          Guardar
-        </button>
-
+      <form class="" action="test.php" method="post" enctype="multipart/form-data">
+        <div class="">
+          <label>Nombre:</label>
+          <input type="text" name="nombre" value="<?=$nombre?>">
+        </div>
+        <div class="">
+          <label>Usuario:</label>
+          <input class="" type="text" name="usuario" value="<?=$usuario?>">
+        </div>
+        <div class="">
+          <label>Mail:</label>
+          <input type="text" name="mail" value="<?=$mail?>">
+        </div>
+        <div class="">
+          <label>Contraseña:</label>
+          <input type="password" name="password" value="">
+        </div>
+          <div class="">
+            <label>Confirmar contraseña:</label>
+            <input type="password" name="cpassword" value="">
+          </div>
+        <div class="">
+          <label for="">Imagen de perfil:</label>
+          <input type="file" name="imgPerfil" value="">
+        </div>
+        <div class="">
+          <input type="submit" name="enviar" value="Enviar">
+        </div>
       </form>
 
     </article>

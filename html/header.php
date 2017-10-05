@@ -21,7 +21,7 @@
       </a>
       <nav class="nav_home">
         <ul>
-          <li><a href="home.php">Inicio</a></li>
+          <li><a href="home.php?id= . $usuario["id"]">Inicio</a></li>
           <li><a href="#"class="sub-articulos">Artículos</a>
             <ul>
               <li><a href="agregar_modif.php"class="art">Agregar / Modificar</a></li>
@@ -49,11 +49,11 @@
           <li><a href="#" class="add">Administración</a>
             <ul>
 
-              <li><a  href="nvo-user.php" class="add1">Usuarios</a></li>
+              <li><a  href="admin_usuarios.php" class="add1">Usuarios</a></li>
               <li><a href="#" class="add1">Configuración</a></li>
             </ul>
           </li>
-          <li><a href="index.php">Salir</a></li>
+          <li><a href="deslogueo.php">Salir</a></li>
         </ul>
       </nav>
 

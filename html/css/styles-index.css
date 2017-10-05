@@ -73,6 +73,13 @@ body h1{
 .container2{
   border-top: 1px solid grey;
 }
+
+.container4 input{
+  display: inline-block;
+  color: white;
+
+}
+
 .container2 label , .container1 label{
   display: block;
   margin-top: 5px;
