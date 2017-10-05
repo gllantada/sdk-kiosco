@@ -188,10 +188,10 @@ padding-right: 10px;
 }
 
 .nav_home ul li ul {
-	display: none;
+	/*display: none;*/
 }
 
-.nav_home ul li a:hover + ul, .nav_home ul li ul:hover {
+.nav_home ul li a:hover + ul, .nav_home ul li ul {
 	display: block ;
   position: absolute;
   z-index: 5;

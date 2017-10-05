@@ -31,7 +31,7 @@ function validarLogin($login){
   $db = file_get_contents($file);
   $data = json_decode($db, true);
   // dump ($login);
-   dump ($data);
+  //  dump ($data);
   // // foreach ($data as $key => $value)
   //   echo ($key[$value]);
   // echo ($login['username']);
@@ -57,12 +57,12 @@ function validarLogin($login){
   return false;
 }
 
-function doSave($values, $photo) {
-  validData($values, $photo);
-  insertInJson($values, $photo);
+function doSave($values) {
+  validData($values);
+  insertInJson($values);
 }
 
-function validData($values, $photo) {
+function validData($values) {
   // se incluye al array declarado globalmente
   global $erros_file;
 
@@ -92,10 +92,6 @@ function validData($values, $photo) {
         setcookie($key, $values[$key]);
   }
 
-  // se valida la la foto tiene errores
-  if ($photo["profile_pic"]["error"] != UPLOAD_ERR_OK) {
-    $errors .= $erros_file[$photo["profile_pic"]["error"]];
-  }
 
   // verifico si hay errores y se hizo la peticion POST
   if ($errors != "") {
@@ -110,7 +106,7 @@ function validData($values, $photo) {
  * @param $user
  * @param $photo
  */
-function insertInJson($user, $photo) {
+function insertInJson($user) {
 
   global $errors;
 
@@ -126,7 +122,6 @@ function insertInJson($user, $photo) {
   // guardo la foto con la funcion savePhoto
   // esta funcion retornará una string con el nombre de la foto guardada
   // o un array con una clave error y su valor un mensaje del error ocurrido
-  $pathPhoto = savePhoto($photo, $user['useremail']);
 
   // Verifico si la variable $pathPhoto es un array, si es así, es porque ocurrió un error
   // al guradar la imagen
@@ -192,47 +187,8 @@ function leerUsuarios(){
  * @param $name
  * @return array|string
  */
-function savePhoto($photo) {
 
-  // se incluye al array declarado globalmente
-  global $erros_file;
 
-  if ($photo["profile_pic"]["error"] == UPLOAD_ERR_OK) {
-
-    // Capturo el nombre
-    $name = $photo["profile_pic"]["name"];
-
-    // Capturo el archivo que se almacena en una carpeta temporal
-    $picture = $photo["profile_pic"]["tmp_name"];
-
-    // Obtenemos la extensión del archivo
-    $ext = pathinfo($name, PATHINFO_EXTENSION);
-
-    if ($ext == "jpg" || $ext == "jpeg" || $ext == "png") {
-      $today = new DateTime("now");
-      $name_pic = date_format($today, "YmdHis")."_photo.";
-
-      // Defino la ruta y el nombre con el cual se guradará la foto
-      $path_and_name = dirname(__FILE__) . "/img-perfil/". $name_pic . $ext;
-
-      // Guardamos la imagen
-      move_uploaded_file($picture, $path_and_name);
-
-      // retormo el nombre de la imagen con la que fue guardada
-      return $name_pic . $ext;
-
-    } else {
-      return [
-        'error' => 'El tipo de archivo para la foto de perfil no es valido (jpg, jpeg, png)'
-      ];
-    }
-  } else {
-    return [
-      'error' => $erros_file[$photo["profile_pic"]["error"]]
-    ];
-  }
-
-}
 
 /**
  * @param string $url
