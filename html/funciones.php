@@ -31,14 +31,14 @@ function validarLogin($login){
   $db = file_get_contents($file);
   $data = json_decode($db, true);
   // dump ($login);
-  // dump ($data);
+   dump ($data);
   // // foreach ($data as $key => $value)
   //   echo ($key[$value]);
   // echo ($login['username']);
   foreach ($data as $key => $value) {
       # code...
 
-      if($value["name"]==$login["username"]){
+      if($value["username"]==$login["username"]){
         echo "venimos bien";
         if($value["pass"]==md5($login["password"])){
 
