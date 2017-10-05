@@ -30,22 +30,30 @@ function validarLogin($login){
   $file = "usuarios.json";
   $db = file_get_contents($file);
   $data = json_decode($db, true);
-  dump ($login);
-  dump ($data);
-  // foreach ($data as $key => $value)
+  // dump ($login);
+  // dump ($data);
+  // // foreach ($data as $key => $value)
   //   echo ($key[$value]);
   // echo ($login['username']);
   foreach ($data as $key => $value) {
-    if($key==$login["email"]){
+      # code...
 
-    echo  var_dump($value);
-    echo   var_dump($login);
+      if($value["name"]==$login["username"]){
+        echo "venimos bien";
+        if($value["pass"]==md5($login["password"])){
 
-if($value["pass"]==$login["password"]){
-  return true;
-}
+          echo "venimos bien";
+
+
+          return true;
+
+      }
+      # code...
     }
-  }
+
+
+    }
+
   return false;
 }
 

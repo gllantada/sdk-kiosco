@@ -1,5 +1,12 @@
 <?php
   require_once "funciones.php";
-  validarLogin($_POST);
+  if(validarLogin($_POST)){
+    redirect("home.php");
+  }
+  else {
+    redirect("index.php");
+  }
+
+
 
 ?>

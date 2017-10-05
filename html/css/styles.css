@@ -9,7 +9,7 @@ body img{
 
 .nav_home ul li ul a{
   color: white;
-
+/*position: absolute;*/
 }
 
 /*.nav_home ul li a:hover + ul, .nav_home ul li ul:hover {
