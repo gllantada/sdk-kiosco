@@ -8,7 +8,6 @@ body img{
 }
 
 .nav_home ul li ul a{
-  background-color: white;
   color: white;
 
 }
@@ -194,7 +193,7 @@ padding-right: 10px;
 
 .nav_home ul li a:hover + ul, .nav_home ul li ul:hover {
 	display: block ;
-  position: fixed;
+  position: absolute;
   z-index: 5;
 }
 }

@@ -36,11 +36,17 @@ function validarLogin($login){
   //   echo ($key[$value]);
   // echo ($login['username']);
   foreach ($data as $key => $value) {
-    foreach ($value as $key1 => $value1) {
-      echo ($value1);
-      echo "<br>";
+    if($key==$login["email"]){
+
+    echo  var_dump($value);
+    echo   var_dump($login);
+
+if($value["pass"]==$login["password"]){
+  return true;
+}
     }
   }
+  return false;
 }
 
 function doSave($values, $photo) {
