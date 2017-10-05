@@ -9,6 +9,14 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
   </head>
   <body>
+    <?php
+    @include_once "funciones.php";
+    session_start();
+    if(!$_SESSION["log"]){
+      redirect("index.php");
+    }
+
+     ?>
     <div class="container5">
       <?php @include "header.php"; ?>
         <div class="main_home">

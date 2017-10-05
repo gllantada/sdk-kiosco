@@ -102,6 +102,7 @@ background-size: cover;
 }
 .init h1{
   color: white;
+  text-transform: capitalize;
 
   font-size: 1em;
   display: block;

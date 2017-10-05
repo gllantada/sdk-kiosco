@@ -11,9 +11,23 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
   </head>
   <body>
+    <?php
+    @include_once "funciones.php";
+    session_start();
+    if(!$_SESSION["log"]){
+      redirect("index.php");
+    }
+
+     ?>
     <header class="main_header">
       <div class="init">
-        <h1>SDK KIOSCO</h1>
+      <h1>
+        <?php
+      
+
+      session_start();
+      echo "Bienvenido ".$_SESSION["name"];  ?>
+    </h1>
         <img src='imagenes/candy.svg' alt="logo" class="logo_index">
       </div>
       <a href="#" class="toggle-nav">
@@ -53,7 +67,7 @@
               <li><a href="#" class="add1">Configuración</a></li>
             </ul>
           </li>
-          <li><a href="index.php">Salir</a></li>
+          <li><a href="pre-index.php">Salir</a></li>
         </ul>
       </nav>
 

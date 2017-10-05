@@ -1,15 +1,7 @@
 <?php
 
 // array global para uso en las funciones
-$erros_file = [
-  1 => 'La foto de perfil subida excede el tamaño necesario',
-  2 => 'La foto de perfil subida excede el tamaño necesario definido en el front',
-  3 => 'La foto de perfil ha sido subida parcialmente',
-  4 => 'La foto de perfil es requerida',
-  6 => 'Falta la carpeta temporal',
-  7 => 'No se pudo escribir el fichero en el disco. Verificar perimsos',
-  8 => 'Otra aplicacion ha detenido la subida de la foto, verificar configuracion del server.'
-];
+
 
 // defino los campos que quiero persistir
 $persistence = [
@@ -44,7 +36,8 @@ function validarLogin($login){
 
           echo "venimos bien";
 
-
+session_start();
+$_SESSION["name"]=$value["name"];
           return true;
 
       }
