@@ -16,9 +16,10 @@
       <h3>Recuperacion de contraseña</h3>
       <p>Para recuperar su contraseña, por favor llene el siguiente formulario y haga clic en botón 'Enviar'. La contraseña será enviada a su cuenta de correo.</p>
       <p><strong>Nota:</strong> Por favor ingrese la dirección que utilizó al registrarse.</p>
-      <form class="main_contacto" action="index.html" method="post">
-        <label for="name">Nombre</label>
-        <input type="text" name="name" value="">
+      <form class="main_contacto" action="rec-pass.php" method="post">
+        <!-- <label for="name">Nombre</label>
+        <input type="text" name="name" value=""> -->
+
         <label for="email">E-mail</label>
         <input type="email" name="Email" value="" required>
         <br>

@@ -18,6 +18,22 @@ $errors;
  * @param array $values
  * @param array $photo
  */
+ function validarEmail($email){
+   $file = "usuarios.json";
+   $db = file_get_contents($file);
+   $data = json_decode($db, true);
+   foreach ($data as $key => $value) {
+       # code...
+
+       if((string)$key==$email){
+         echo "venimos bien";
+
+
+       }
+       # code...
+     }
+
+ }
 function validarLogin($login){
   $file = "usuarios.json";
   $db = file_get_contents($file);
