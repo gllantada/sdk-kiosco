@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Adminstracion de Usuarios</title>
     <link rel="stylesheet" href="css/styless.css">
+        <link rel="stylesheet" href="css/styles-nvo-user.css">
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <meta name="viewport" content="width=device-width initial-scale=1">
@@ -23,7 +24,7 @@
           id="name"
           placeholder="Nombre"
           value="<?php echo (isset($_COOKIE['name']) && !empty($_COOKIE['name'])) ? $_COOKIE['name'] : ""; ?>">
-        <br><br>
+
 
         <input
           type="text"
@@ -31,7 +32,7 @@
           id="lastname"
           placeholder="Apellido"
           value="<?php echo (isset($_COOKIE['lastname']) && !empty($_COOKIE['lastname'])) ? $_COOKIE['lastname'] : ""; ?>">
-        <br><br>
+
 
         <input
           type="text"
@@ -39,7 +40,7 @@
           id="username"
           placeholder="Nombre de usuario"
           value="<?php echo (isset($_COOKIE['username']) && !empty($_COOKIE['username'])) ? $_COOKIE['username'] : ""; ?>">
-        <br><br>
+
 
         <input
           type="email"
@@ -47,35 +48,31 @@
           id="useremail"
           placeholder="Correo electronico"
           value="<?php echo (isset($_COOKIE['useremail']) && !empty($_COOKIE['useremail'])) ? $_COOKIE['useremail'] : ""; ?>">
-        <br><br>
+
 
         <input
           type="password"
           name="pass"
           id="pass"
           placeholder="Contraseña">
-        <br><br>
+
 
         <input
           type="password"
           name="equal_pass"
           id="equal_pass"
           placeholder="Repita la contraseña">
-        <br><br>
 
-        <input
-          type="file"
-          name="profile_pic"
-          id="profile_pic" accept="image/*">
-        <br><br>
+<div class="bottonera">
+  <button class="buton"type="submit">
+    Guardar
+  </button>
 
-        <button type="submit">
-          Guardar
-        </button>
+</div>
 
       </form>
 
     </article>
-
+  <?php @include "footer.php"?>
   </body>
 </html>
