@@ -37,7 +37,7 @@ function validarLogin($login){
   // echo ($login['username']);
   foreach ($data as $key => $value) {
     if($key==$login["email"]){
-
+echo "estoy imprimiendo esto";
     echo  var_dump($value);
     echo   var_dump($login);
 
