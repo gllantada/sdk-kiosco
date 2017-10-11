@@ -18,6 +18,7 @@
                   <h1> Gestión de Kiosco</h1>
                   <!-- <img src='imagenes/candy.svg' alt="logo" class="logo_index"> -->
           </div>
+          <a href="intent://send/+5491126343953#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end">Open WhatsApp chat window</a>  
           <form class="login_form" action='validar_login.php' method='post'>
               <div class='container1'>
                 <label>Usuario: </label>

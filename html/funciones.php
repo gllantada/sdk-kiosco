@@ -44,18 +44,11 @@ function validarLogin($login){
   //   echo ($key[$value]);
   // echo ($login['username']);
   foreach ($data as $key => $value) {
-<<<<<<< HEAD
-    if($key==$login["email"]){
-echo "estoy imprimiendo esto";
-    echo  var_dump($value);
-    echo   var_dump($login);
-=======
       # code...
 
       if($value["username"]==$login["username"]){
         echo "venimos bien";
         if($value["pass"]==md5($login["password"])){
->>>>>>> c7967712ec776feb7d573918774b4dbf96edcc83
 
           echo "venimos bien";
 
