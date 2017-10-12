@@ -27,6 +27,7 @@ $errors;
 
        if((string)$key==$email){
          echo "venimos bien";
+         return true;
 
 
        }
