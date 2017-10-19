@@ -1,76 +1,50 @@
 <?php
-@include "conexion.php";
-class usuario{
-  private $nombre;
-  private $apellido;
-  private $dni;
-  private $email;
+/**
+ *
+ */
+ include "persona.php";
+class Usuario extends Persona
+{
   private $estado;
+  private $id;
   private $nivel;
-  // public static=(integer)0;
-  public function __construct($nombre,$apellido,$dni,$email){
-this->nombre  =$nombre;
+  private $passwd;
 
-this->apellido  =$apellido;
+  function __construct($nombre,$apellido,$dni,$email,$estado,$nivel,$passwd)
+  {
+    parent::__construct($nombre,$apellido,$dni,$email);
+    $this->estado=$estado;
+    $this->nivel=$nivel;
+    $this->passwd=$passwd;
+  }
+  public function getId(){
+    return $this->id;
+  }
+  public function setPasswd($passwd){
+  $this->passwd=$passwd;
+  }
 
-this->dni  =$dni;
-this->email  =$dni;
+  public function getPasswd(){
+  return $this->passwd;
 
   }
-public function setnombre($nombre){
-this->nombre=$nombre;
-}
-public function getnombre(){
-return this->nombreapellido;
 
-} function
+  public function setEstado($estado){
+  $this->estado=$estado;
+  }
 
-public function setapellido($apellido){
-this->apellido=$apellido;
-}
+  public function getEstado(){
+  return $this->estado;
 
-public function getapellido(){
-return this->apellido;
+  }
+  public function setNivel($nivel){
+  $this->nivel=$nivel;
+  }
 
-}
-public function setdni($dni){
-this->dni=$dni;
-}
+  public function getNivel(){
+  return $this->nivel;
 
-public function getdni(){
-return this->dni;
-
-}
-public function setemail($email){
-this->email=$email;
-}
-
-public function getemail(){
-return this->email;
-
-}
-public function setestado($estado){
-this->estado=$estado;
-}
-
-public function getestado(){
-return this->estado;
-
-}
-public setnivel($nivel){
-this->nivel=$nivel;
-}
-
-public function getnivel(){
-return this->nivel;
-
-}
-
-
-
-
-
-
+  }
 
 
 }

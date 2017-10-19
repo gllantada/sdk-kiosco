@@ -1,4 +1,5 @@
 <?php
+
 $conn;
     function doConect(){
           global $conn;
@@ -28,17 +29,32 @@ function closeConn(){
           echo die("error al intentar conectar con la base de datos: ".$e->getMessage());
         }
       }
-function insertPerson($nombre,$apellido,$dni,$email){
-      global $conn;
-      $sql="insert into usuarios (name,lastname,email,passwd) values('$nombre','$apellido','$email','$dni')";
+function insertPerson(Usuario $x){
+// echo var_dump($x);
+    doConect();
+
+    global $conn;
+
+    $sql='insert into sdg.usuarios (name,lastname,email,dni,passwd) values("'.$x->getNombre().'","'.$x->getApellido().'","'.$x->getEmail().'","'.$x->getDni().'","'.$x->getPasswd().'"'.');';
     $query=$conn->prepare($sql);
 
-    $query->execute();
-var_dump($query);
+  $query->execute();
+  echo "<pre>";
+  echo var_dump($query);
+  echo "</pre>";
+  closeConn();
       }
+    function listarUsuarios(){
       doConect();
-      insertPerson("tomas","juanlanus","tomyjuan@gmail.com",4595955);
-      closeconn();
+          global $conn;
 
+          $sql='select * from sdg.usuarios;' ;
+          $query=$conn->prepare($sql);
 
+        $query->execute();
+
+      closeConn();
+
+return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
  ?>
