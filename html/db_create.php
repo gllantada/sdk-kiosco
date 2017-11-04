@@ -1,5 +1,7 @@
 <?php
 include_once "funciones.php";
+include_once "class/usuario.php";
+
 class Create_database
 {
 	protected $pdo;
@@ -7,10 +9,10 @@ protected $datos;
 
 
   public function __construct($datos){
-    if($datos["host"]==""){
+    if($datos["host"]=="" or $datos["user"]==""){
 
 try{
-  $this->pdo = new PDO("mysql:host=localhost;","root","");
+	$this->pdo = new PDO("mysql:host=localhost;","root","");
 }catch(pdoException $e)
 {
   echo "Error con el usuario y contraseña <br><pre>".$e;
@@ -18,16 +20,6 @@ echo "</pre>";
   die();
 }
 
-    }else if($datos["user"]==""){
-
-      try{
-        $this->pdo = new PDO("mysql:host=localhost;","root","");
-      }catch(pdoException $e)
-      {
-        echo "Error con el usuario y contraseña <br><pre>".$e;
-      echo "</pre>";
-        die();
-      }
     }else {
 
       try{  $this->pdo = new PDO("mysql:host=".$datos["host"].";", $datos["user"],$datos["pass"]);
@@ -70,6 +62,27 @@ public function create_table ($use_db){
 		endif;
 
 	}
+	public function migrateFromJson(){
+		echo "<br> hola mundo";
+echo "<pre>";
+$datos=leerUsuarios();
+foreach ($datos as $key => $value) {
+
+	$user=new Usuario($value["name"],$value["lastname"],$value["dni"],$value["useremail"],$value["estado"],$value["nivel"],$value["pass"]);
+	if(insertInMysql($value)){
+
+	}else{
+		"error al cargar usuarios en la base de datos";
+		die();
+	}
+
+}
+Redirect("index.php");
+
+echo var_dump($value);
+echo "</pre>";
+// die();
+	}
 public  function delete_db()
 {
   $statement = $this->pdo->prepare("DROP DATABASE IF EXISTS sdg");
@@ -86,42 +99,45 @@ session_start();
 // $db->check_database();
 // echo var_dump($db);
 // die();
-if(isset($_POST["new_db"])){
+		if(isset($_POST["new_db"])){
 
-  $db->create_db();
-$_SESSION["db"]=true;
-$_SESSION["table"]=false;
-$_SESSION["error_tbl"]=false;
-  Redirect("dbform.php");
+							$db->create_db();
+							$_SESSION["db"]=true;
+							$_SESSION["table"]=false;
+							$_SESSION["error_tbl"]=false;
+							Redirect("dbform.php");
 
 
-}
+		}
 
-if(isset($_POST["new_tbl"])){
-  if($_SESSION["db"]){
-  $db->create_table($db->create_db());
-$_SESSION["table"]=true;
-Redirect("dbform.php");
-}else{
-$_SESSION["error_tbl"]=true;
-  Redirect("dbform.php");
+				if(isset($_POST["new_tbl"])){
+				  if($_SESSION["db"]){
+					  $db->create_table($db->create_db());
+						$_SESSION["table"]=true;
+						Redirect("dbform.php");
+				}else{
+						$_SESSION["error_tbl"]=true;
+					  Redirect("dbform.php");
 
-}
-}
-if (isset($_POST["destruir"])){
-if($db->delete_db()){
-session_destroy();
-Redirect("dbform.php");
-}else{
-  echo "no se pudo destruir";
-}}
-if(isset($_POST["migrar"])){
-  if($_SESSION["db"]&&$_SESSION["table"]){
-    Redirect("dbform.php");
-  }else{
-    Redirect("dbform.php");
-  }
-}
+				}
+				}
+				if (isset($_POST["destruir"])){
+				if($db->delete_db()){
+				session_destroy();
+				Redirect("dbform.php");
+				}else{
+				  echo "no se pudo destruir";
+				}}
+				if(isset($_POST["migrar"])){
+						  if(isset($_SESSION["db"])&&isset($_SESSION["table"])){
+									if($_SESSION["db"] and $_SESSION["table"]){
+										$db->migrateFromJson();
+									  Redirect("dbform.php");
+									}
+						  }else{
+							    Redirect("dbform.php");
+				  }
+				}
 
 
 ?>

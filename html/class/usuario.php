@@ -17,6 +17,7 @@ class Usuario extends Persona
     $this->nivel=$nivel;
     $this->passwd=$passwd;
   }
+  
   public function getId(){
     return $this->id;
   }

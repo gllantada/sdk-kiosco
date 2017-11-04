@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once "class/clases.php";
 // array global para uso en las funciones
 
@@ -33,57 +35,58 @@ $errors;
        }
        # code...
      }
+     return false;
 
  }
 function validarLogin($login){
   $file = "usuarios.json";
   $db = file_get_contents($file);
   $data = json_decode($db, true);
-  // dump ($login);
-  //  dump ($data);
-  // // foreach ($data as $key => $value)
-  //   echo ($key[$value]);
-  // echo ($login['username']);
+
   foreach ($data as $key => $value) {
-      # code...
-dump($value);
-dump($login);
-// die();
-$pass=md5($login["password"]);
-echo $pass;
+        $pass=md5($login["password"]);
+        echo $pass;
       if($value["useremail"]==$login["username"]){
-        echo "venimos bien";
-// die();
-        if($value["pass"]==md5($login["password"])){
-
           echo "venimos bien";
-          // die();
+        if($value["pass"]==md5($login["password"])){
+            if(doConect()){
+                  $_SESSION["name"]=$value["name"];
+                  closeConn();
+                            return true;
 
-session_start();
-$_SESSION["name"]=$value["name"];
-          return true;
-
-      }
-      # code...
-    }
-
-
-    }
+                  }
+                }
+              }
+        }
 
   return false;
 }
 
 function doSave($values) {
-  validData($values);
-  if(insertInJson($values)){
-  insertInMysql($values);
-}
+  // validData($values);
+  if( validData($values)){
+    if(insertInMysql($values)){
+      if(insertInJson($values)){
+        return true;
+      }else{
+        return false;
+      }
+    }else{
+      return false;
+    }
+  }
+  return false;
 }
 function insertInMysql($data){
   $nuevo= new Usuario($data["name"],$data["lastname"],$data["dni"],$data["useremail"],true,$data["nivel"],md5($data["pass"]));
-  insertPerson($nuevo);
+      if(insertPerson($nuevo)){
+        echo "usuario registrado en la base con exito";
+        return true;
+    }else{
+        return false;
+      }
   // die();
-}
+    }
 
 
 function validData($values) {
@@ -123,14 +126,13 @@ function validData($values) {
     setcookie('error', $errors, time() + 5);
     //redirect to index
     Redirect();
+  }else{
+    return true;
   }
 
 }
 
-/**
- * @param $user
- * @param $photo
- */
+
 function insertInJson($user) {
 
   global $errors;
@@ -165,7 +167,7 @@ function insertInJson($user) {
   if ($errors != "") {
     setcookie('error', $errors, time() + 5);
     //redirect to index
-    Redirect();
+    return false;
   }
 
   // se crea un array con los dato a guardar en el json
@@ -176,6 +178,8 @@ function insertInJson($user) {
     "useremail"  => $user['useremail'],
     "nivel"  => $user['nivel'],
     "pass"      => md5($user['pass']),
+    "deleted_at"=>null,
+    "estado"=>false,
 
   ];
 
@@ -201,32 +205,21 @@ function leerUsuarios(){
   var_dump ($data);
   echo "<br>";
   foreach ($data as $key => $value){
-    foreach ($key as $value => $value2)
+    foreach ($value as $key2 => $value2)
       var_dump($value2);
   // return($data);
   }
+  return $data;
 }
 
-/**
- * @param $photo
- * @param $name
- * @return array|string
- */
 
 
-
-/**
- * @param string $url
- * @param bool $permanent
- */
 function Redirect($url = 'admin_usuarios.php', $permanent = false) {
   header('Location: ' . $url, true, $permanent ? 301 : 302);
   exit();
 }
 
-/**
- * @param $data
- */
+
 function dump($data) {
   echo "<pre>";
   var_dump($data);

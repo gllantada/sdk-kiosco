@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
 $conn;
     function doConect(){
           global $conn;
@@ -14,11 +14,11 @@ $conn;
 
           try{
             $conn= new pdo($dsn,$db->user,$db->passwd);
+
+            $_SESSION["database"]=true;
           }catch(pdoException $e){
-            
-            echo die("error al intentar conectar con la base de datos: ".$e->getMessage());
-            echo dump($dsn);
-            echo "hola mundo";
+session_destroy();
+            Redirect("dbform.php");
           }
           return true;
         }
@@ -36,16 +36,26 @@ function insertPerson(Usuario $x){
 
     global $conn;
 
-    $sql='insert into sdg.usuarios (name,lastname,email,dni,passwd,nivel,estado) values("'.$x->getNombre().'","'.$x->getApellido().'","'.$x->getEmail().'","'.$x->getDni().'","'.$x->getPasswd().'"
+   $sql='insert into sdg.usuarios (name,lastname,email,dni,passwrd,nivel,estado) values("'.$x->getNombre().'","'.$x->getApellido().'","'.$x->getEmail().'","'.$x->getDni().'","'.$x->getPasswd().'"
     ,"'.$x->getNivel().'",'.$x->getEstado().");";
     $query=$conn->prepare($sql);
+echo var_dump($sql);
+// die();
+try{   $query->execute();
+closeConn();
 
-  $query->execute();
+return $query;
+  }catch(pdoException $e){
   echo "<pre>";
-  echo var_dump($query);
+  echo $e->getMessage();
   echo "</pre>";
   closeConn();
-      }
+
+  return false;
+}
+closeConn();
+return true;
+}
     function listarUsuarios(){
       doConect();
           global $conn;

@@ -11,7 +11,6 @@
   <body>
     <?php
     @include_once "funciones.php";
-    session_start();
     if(!$_SESSION["log"]){
       redirect("index.php");
     }

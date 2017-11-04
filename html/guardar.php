@@ -1,5 +1,6 @@
 <?php
 require_once "funciones.php";
-doSave($_POST, $_FILES);
-dump($_POST);
+if(doSave($_POST, $_FILES)){
+Redirect("home.php");
+}
 ?>

@@ -11,7 +11,7 @@
   </head>
   <body>
     <?php
-    @include "header.php"
+    @include "header.php";
     ?>
     <article class="usuarios">
       <h2>Registro de nuevo usuario</h2>

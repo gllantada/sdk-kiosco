@@ -17,7 +17,7 @@
     if(!$_SESSION["log"]){
       redirect("index.php");
     }
-    if(!$_SESSION["database"]){
+    if(!isset($_SESSION["database"])){
       redirect("dbform.php");
     }
 
