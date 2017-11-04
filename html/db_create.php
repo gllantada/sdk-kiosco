@@ -23,6 +23,7 @@ echo "</pre>";
     }else {
 
       try{  $this->pdo = new PDO("mysql:host=".$datos["host"].";", $datos["user"],$datos["pass"]);
+				
     }catch(pdoException $e){
       echo "Uno o todos los datos los tenes mal por favor revisa <br>".$e;
 
