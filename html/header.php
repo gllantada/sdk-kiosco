@@ -17,13 +17,16 @@
     if(!$_SESSION["log"]){
       redirect("index.php");
     }
+    if(!$_SESSION["database"]){
+      redirect("dbform.php");
+    }
 
      ?>
     <header class="main_header">
       <div class="init">
       <h1>
         <?php
-      
+
 
       session_start();
       echo "Bienvenido ".$_SESSION["name"];  ?>

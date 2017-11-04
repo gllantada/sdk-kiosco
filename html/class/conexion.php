@@ -15,6 +15,7 @@ $conn;
           try{
             $conn= new pdo($dsn,$db->user,$db->passwd);
           }catch(pdoException $e){
+            
             echo die("error al intentar conectar con la base de datos: ".$e->getMessage());
             echo dump($dsn);
             echo "hola mundo";
@@ -35,7 +36,8 @@ function insertPerson(Usuario $x){
 
     global $conn;
 
-    $sql='insert into sdg.usuarios (name,lastname,email,dni,passwd) values("'.$x->getNombre().'","'.$x->getApellido().'","'.$x->getEmail().'","'.$x->getDni().'","'.$x->getPasswd().'"'.');';
+    $sql='insert into sdg.usuarios (name,lastname,email,dni,passwd,nivel,estado) values("'.$x->getNombre().'","'.$x->getApellido().'","'.$x->getEmail().'","'.$x->getDni().'","'.$x->getPasswd().'"
+    ,"'.$x->getNivel().'",'.$x->getEstado().");";
     $query=$conn->prepare($sql);
 
   $query->execute();

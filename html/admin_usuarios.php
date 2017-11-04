@@ -10,7 +10,9 @@
     <meta name="viewport" content="width=device-width initial-scale=1">
   </head>
   <body>
-    <?php @include "header.php"?>
+    <?php
+    @include "header.php"
+    ?>
     <article class="usuarios">
       <h2>Registro de nuevo usuario</h2>
       <?php echo (isset($_COOKIE['error']) && !empty($_COOKIE['error'])) ? $_COOKIE['error'] : ""; ?>
@@ -24,7 +26,7 @@
           id="name"
           placeholder="Nombre"
           value="<?php echo (isset($_COOKIE['name']) && !empty($_COOKIE['name'])) ? $_COOKIE['name'] : ""; ?>">
-
+<!-- $nombre,$apellido,$dni,$email,$estado,$nivel,$passwd -->
 
         <input
           type="text"
@@ -32,23 +34,21 @@
           id="lastname"
           placeholder="Apellido"
           value="<?php echo (isset($_COOKIE['lastname']) && !empty($_COOKIE['lastname'])) ? $_COOKIE['lastname'] : ""; ?>">
-
-
-        <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Nombre de usuario"
-          value="<?php echo (isset($_COOKIE['username']) && !empty($_COOKIE['username'])) ? $_COOKIE['username'] : ""; ?>">
-
-
+<!--  -->
+<input type="text" name="dni" value=""placeholder="DNI">
+<!-- $nombre,$apellido,$dni,$email,$estado,$nivel,$passwd -->
         <input
           type="email"
           name="useremail"
           id="useremail"
           placeholder="Correo electronico"
           value="<?php echo (isset($_COOKIE['useremail']) && !empty($_COOKIE['useremail'])) ? $_COOKIE['useremail'] : ""; ?>">
+          <select name="nivel">
+            <option value="admin">Administrador</option>
+            <option value="empleado">Empleado</option>
+            <option value="supervisor">Supervisor</option>
 
+          </select>
 
         <input
           type="password"

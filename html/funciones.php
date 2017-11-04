@@ -1,5 +1,5 @@
 <?php
-
+require_once "class/clases.php";
 // array global para uso en las funciones
 
 
@@ -46,12 +46,18 @@ function validarLogin($login){
   // echo ($login['username']);
   foreach ($data as $key => $value) {
       # code...
-
-      if($value["username"]==$login["username"]){
+dump($value);
+dump($login);
+// die();
+$pass=md5($login["password"]);
+echo $pass;
+      if($value["useremail"]==$login["username"]){
         echo "venimos bien";
+// die();
         if($value["pass"]==md5($login["password"])){
 
           echo "venimos bien";
+          // die();
 
 session_start();
 $_SESSION["name"]=$value["name"];
@@ -69,8 +75,16 @@ $_SESSION["name"]=$value["name"];
 
 function doSave($values) {
   validData($values);
-  insertInJson($values);
+  if(insertInJson($values)){
+  insertInMysql($values);
 }
+}
+function insertInMysql($data){
+  $nuevo= new Usuario($data["name"],$data["lastname"],$data["dni"],$data["useremail"],true,$data["nivel"],md5($data["pass"]));
+  insertPerson($nuevo);
+  // die();
+}
+
 
 function validData($values) {
   // se incluye al array declarado globalmente
@@ -84,7 +98,8 @@ function validData($values) {
   $isEmptyEqua = false;
 
   // de fino el array de traduccion para los mensajes
-  $translate = [
+  $translate =
+  [
     "useremail"  => "Correo electronico",
     "name"       => "Nombre",
     "lastname"   => "Apellido",
@@ -135,9 +150,6 @@ function insertInJson($user) {
 
   // Verifico si la variable $pathPhoto es un array, si es así, es porque ocurrió un error
   // al guradar la imagen
-  if (is_array($pathPhoto))
-    // set la variable global error
-    $errors = $pathPhoto["error"];
 
   // antes de definir la data, verificamos que los claves sean iguales
   if (md5($user['pass']) != md5($user['equal_pass']))
@@ -160,9 +172,11 @@ function insertInJson($user) {
   $new_user = [
     "name"      => $user['name'],
     "lastname"  => $user['lastname'],
-    "username"  => $user['username'],
+    "dni"  => $user['dni'],
+    "useremail"  => $user['useremail'],
+    "nivel"  => $user['nivel'],
     "pass"      => md5($user['pass']),
-    "photo"     => $pathPhoto,
+
   ];
 
   // agreso al usuario nuevo al array definiendo como clave el email
@@ -176,7 +190,8 @@ function insertInJson($user) {
 
   setcookie('success', 'Usuario registrado con exíto!', time() + 5);
   // regreso al form
-  Redirect("delete_coockies.php");
+  // Redirect("delete_coockies.php");
+  return true;
 }
 
 function leerUsuarios(){

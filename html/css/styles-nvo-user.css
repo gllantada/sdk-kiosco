@@ -1,4 +1,4 @@
-input{
+select, input{
   display: block;
   position: relative;
   left: 50%;
@@ -7,6 +7,15 @@ input{
   text-align: center;
   font-size: 2em;
   border-radius: 17px;
+}
+select{
+  width: 390px;
+  text-align: center;
+
+}
+select option{
+  text-align: center;
+  color: grey;
 }
 .buton{
 margin:0;
