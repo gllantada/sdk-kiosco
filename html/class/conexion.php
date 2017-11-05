@@ -1,8 +1,14 @@
 <?php
   session_start();
 $conn;
+$opt = array(
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        );
+
     function doConect(){
           global $conn;
+          global $opt;
           $parameters= file_get_contents("parameters.json",true);
           $parameters= json_decode($parameters,true);
           $db=(object)$parameters["db"];
@@ -13,7 +19,7 @@ $conn;
             );
 
           try{
-            $conn= new pdo($dsn,$db->user,$db->passwd);
+            $conn= new pdo($dsn,$db->user,$db->passwd,$opt);
 
             $_SESSION["database"]=true;
           }catch(pdoException $e){

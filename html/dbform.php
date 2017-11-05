@@ -36,7 +36,7 @@ if ($_SESSION["error_tbl"]) {
 echo "Dios mio, de que estas echo? tenes que crear la base de datos antes que la tabla.";
 }}}}
        ?>
-       <h3>Los Datos solicitados en el formulario son opcionales si posees una configuracion distinta recorda cambiar tanbien en el archivo class/parameters.json a demas de completar aka
+       <h3>Si vas a completar con tus datos es importante que completes el host y el usuario. la contraseña puede estar vacia pero si no completas los 2 usa por defecto los que estan escritos
        </h3><br><br>
        <label for="host">Host: </label>
        <input type="text" name="host" value=""placeholder="localhost">

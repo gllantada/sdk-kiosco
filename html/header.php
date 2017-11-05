@@ -13,6 +13,7 @@
   <body>
     <?php
     @include_once "funciones.php";
+    include_once "class/clases.php";
     session_start();
     if(!$_SESSION["log"]){
       redirect("index.php");
@@ -28,8 +29,12 @@
         <?php
 
 
-      session_start();
-      echo "Bienvenido ".$_SESSION["name"];  ?>
+      // session_start();
+doConect();
+closeConn();
+      echo "Bienvenido ".$_SESSION["name"];
+
+      ?>
     </h1>
         <img src='imagenes/candy.svg' alt="logo" class="logo_index">
       </div>

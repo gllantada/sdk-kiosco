@@ -9,10 +9,14 @@ protected $datos;
 
 
   public function __construct($datos){
+		$opt = array(
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            );
     if($datos["host"]=="" or $datos["user"]==""){
 
 try{
-	$this->pdo = new PDO("mysql:host=localhost;","root","");
+	$this->pdo = new PDO("mysql:host=localhost;","root","",$opt);
 }catch(pdoException $e)
 {
   echo "Error con el usuario y contraseña <br><pre>".$e;
@@ -22,13 +26,26 @@ echo "</pre>";
 
     }else {
 
-      try{  $this->pdo = new PDO("mysql:host=".$datos["host"].";", $datos["user"],$datos["pass"]);
-				
-    }catch(pdoException $e){
-      echo "Uno o todos los datos los tenes mal por favor revisa <br>".$e;
+      try{
+				$this->pdo = new PDO("mysql:host=".$datos["host"].";", $datos["user"],$datos["pass"],$opt);
+				$db["driver"]="mysql";
+				$db["localhost"]=$datos["host"];
+				$db["dbname"]="sdg";
+				$db["charset"]="utf8mb4";
+				$db["port"]=3306;
+				$db["user"]=$datos["user"];
+				$db["passwd"]=$datos["pass"];
+				$final["db"]=$db;
+				$db=json_encode($final);
 
-      die();
+				file_put_contents("class/parameters.json",$db);
+				  }catch(PDOException $ex)
+					{
+      			echo "Uno o todos los datos los tenes mal por favor revisa <br>".$ex->getMessage();
+
+      			die();
     }
+
     }
 
   }
@@ -95,8 +112,9 @@ public  function delete_db()
 // echo var_dump($_POST);
 // die();
 $db = new Create_database($_POST);
-
-session_start();
+echo var_dump($db);
+// die();
+// session_start();
 // $db->check_database();
 // echo var_dump($db);
 // die();
