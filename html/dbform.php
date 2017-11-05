@@ -10,15 +10,20 @@
     <title>Erro en Base de Datos!!!</title>
   </head>
   <body>
+
     <form class="" action="db_create.php" method="post">
+<div class="textos">
+  <h3>Recuerde que es necesario completar todos los datos, a excepción de la contraseña si no posee.</h3><br>
+  <h3>Caso contrario, los valores serán los mostrados inicialmente.</h3><br>
+
       <?php
 session_start();
 if(isset($_SESSION["db"])){
 if($_SESSION["db"]==true){
-  echo "La base de Datos fue creada con Exito!!";
+  echo "La base de datos fue creada con éxito!!";
   echo "<br>";
 }else{
-  echo "Ups. te falto crear la base de datos ";
+  echo "Ups, te faltó crear la base de datos. ";
   echo "<br>";
   $_SESSION["table"]=false;
   $_SESSION["jason"]=false;
@@ -26,9 +31,9 @@ if($_SESSION["db"]==true){
 }
 if(isset($_SESSION["table"])){
 if($_SESSION["table"]==true && $_SESSION["db"]==true){
-  echo "La tabla usuarios Fue creada con Exito!!!";
+  echo "La tabla usuarios fue creada con éxito!!";
 echo "<br>";
-  echo "ahora te falta migrar los usuarios ya creados";
+  echo "Ahora te falta migrar los usuarios ya creados.";
   echo "<br>";
 }else if($_SESSION["table"]==true){
 echo "Te falto crear la Base de Datos!!";
@@ -41,8 +46,8 @@ if ($_SESSION["error_tbl"]) {
 echo "Dios mio, de que estas echo? tenes que crear la base de datos antes que la tabla.";
 }}}}
        ?>
-       <h3>Si vas a completar con tus datos es importante que completes el host y el usuario. la contraseña puede estar vacia pero si no completas los 2 usa por defecto los que estan escritos
-       </h3><br><br>
+
+       </div>
        <label for="host">Host: </label>
        <input type="text" name="host" value=""placeholder="localhost">
        <br><label for="user">Usuario: </label>
