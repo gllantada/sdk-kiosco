@@ -1,0 +1,26 @@
+.botonera{
+  position: inherit;
+  float: inherit;
+  text-align: center;
+  position: relative;
+  margin: auto;
+  display: block;
+  width: 100%;
+
+
+}
+
+.botonera button{
+  background: blue;
+  color: white;
+  padding: 1em;
+  margin: 12px;
+  border-radius: 15px;
+
+}
+
+body{
+  max-width: 1200px;
+font-size: 1.2em;
+color: blue;
+}

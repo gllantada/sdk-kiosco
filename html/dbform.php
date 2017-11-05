@@ -2,6 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/dbform.css">
+    <link rel="stylesheet" href="css/styles-contacto.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+
     <title>Erro en Base de Datos!!!</title>
   </head>
   <body>
@@ -46,13 +51,14 @@ echo "Dios mio, de que estas echo? tenes que crear la base de datos antes que la
        <label for="pass">Contraseña: </label>
        <input type="text" name="pass" value=""placeholder="">
 <br>
+<span class="botonera">
       <button type="submit" name="new_db">Crear Base</button>
 
       <button type="submit" name="new_tbl">Crear tabla</button>
 
       <button type="submit" name="migrar">Migrar de Jason</button>
       <button type="submit" name="destruir">Destruir</button>
-
+</span>
     </form>
 
   </body>
